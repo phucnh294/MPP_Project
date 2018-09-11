@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:controller="GUI.sign_up.SignUpController"
+	xmlns:fx="http://javafx.com/fxml" styleClass="root">
+
+	<padding>
+		<Insets top="25" right="100" bottom="25" left="100" />
+	</padding>
+
+	<Label text="Full Name:" />
+	<TextField />
+	
+	<Label text="Phone Number:" />
+	<TextField />
+	
+	<Label text="Email:" />
+	<TextField />
+
+	<Label text="Password:" />
+	<PasswordField fx:id="passwordField" />
+	
+	<Label text="Confirm Password:" />
+	<PasswordField fx:id="passwordField" />
+
+	<VBox alignment="center" spacing="10" styleClass="hbox">
+		<Text fx:id="actiontarget" />
+		<Button text="Register" onAction="#handleRegister"
+			styleClass="negativeButton" />
+	</VBox>
+
+	<stylesheets>
+		<URL value="@SignUp.css" />
+	</stylesheets>
+
+</VBox>

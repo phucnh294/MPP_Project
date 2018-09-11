@@ -6,19 +6,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:controller="GUI.sign_in.FXMLExampleController"
-	maxHeight="Infinity" 
-	maxWidth="Infinity"
-	xmlns:fx="http://javafx.com/fxml" 
-	styleClass="root">
-	
+<VBox fx:controller="GUI.sign_in.SignInController"
+	xmlns:fx="http://javafx.com/fxml" styleClass="root">
+
 	<padding>
 		<Insets top="25" right="100" bottom="25" left="100" />
 	</padding>
 
 	<Text id="welcome-text" text="Transport Dealership Management" />
-	
-	<Text fx:id="actiontarget" />
 
 	<Label text="User Name:" />
 
@@ -26,15 +21,19 @@
 
 	<Label text="Password:" />
 
-	<PasswordField fx:id="passwordField"  />
+	<PasswordField fx:id="passwordField" />
 
-	
-	<VBox>
-	<Button text="Sign In" onAction="#handleSubmitButtonAction" />
-	
-	<Label text="Not Register ?" />
-	
-	<Button text="Register" onAction="#handleSubmitButtonAction" />
+
+	<VBox alignment="center" styleClass="hbox">
+		<Text fx:id="actiontarget" />
+		<Button text="Sign In" onAction="#handleSignIn"
+			styleClass="positiveButton" />
+	</VBox>
+
+	<VBox alignment="center" spacing="10" styleClass="hbox">
+		<Label text="Not Register ?" />
+		<Button text="Register" onAction="#handleRegister"
+			styleClass="negativeButton" />
 	</VBox>
 
 	<stylesheets>

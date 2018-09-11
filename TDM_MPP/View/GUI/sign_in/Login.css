@@ -34,9 +34,9 @@ root {
     display: block;
 }
 
-.root {
+/* .root {
      -fx-background-image: url("background.jpg");
-}
+}*/
 
 .label {
     -fx-font-size: 12px;
@@ -58,7 +58,8 @@ root {
   -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );  
 }
 
-.button {
+.positiveButton {
+	-fx-pref-width: 200px;
     -fx-text-fill: white;
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
@@ -66,6 +67,25 @@ root {
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
 
-.button:hover {
+.positiveButton:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
+}
+
+.negativeButton {
+	-fx-pref-width: 200px;
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2a1, #2AA058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.hbox {
+    /**-fx-background-color: #2f4f4f;*/
+    -fx-padding: 20;
+    -fx-spacing: 2;
+}
+
+.negativeButton:hover {
     -fx-background-color: linear-gradient(#2A5058, #61a2b1);
 }
