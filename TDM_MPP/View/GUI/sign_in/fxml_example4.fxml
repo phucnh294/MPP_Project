@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:controller="GUI.sign_in.FXMLExampleController"
+	maxHeight="Infinity" 
+	maxWidth="Infinity"
+	xmlns:fx="http://javafx.com/fxml" 
+	styleClass="root">
+	
+	<padding>
+		<Insets top="25" right="100" bottom="25" left="100" />
+	</padding>
+
+	<Text id="welcome-text" text="Transport Dealership Management" />
+	
+	<Text fx:id="actiontarget" />
+
+	<Label text="User Name:" />
+
+	<TextField />
+
+	<Label text="Password:" />
+
+	<PasswordField fx:id="passwordField"  />
+
+	
+	<Button text="Sign In" onAction="#handleSubmitButtonAction" />
+	
+	<Label text="Not Register ?" />
+	
+	<Button text="Register" onAction="#handleSubmitButtonAction" />
+
+
+	<stylesheets>
+		<URL value="@Login.css" />
+	</stylesheets>
+
+</VBox>
