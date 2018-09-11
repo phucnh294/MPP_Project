@@ -1,4 +1,4 @@
-package Model.User;
+package User;
 
 public class Customer extends User{
 	private int customerId;

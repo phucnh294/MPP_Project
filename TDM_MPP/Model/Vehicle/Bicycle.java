@@ -1,4 +1,4 @@
-package Model.Vehicle;
+package Vehicle;
 
 public class Bicycle {
 	private int type;

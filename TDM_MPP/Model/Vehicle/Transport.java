@@ -1,4 +1,4 @@
-package Model.Vehicle;
+package Vehicle;
 
 import java.time.LocalDate;
 
