@@ -1,4 +1,4 @@
-package Interface;
+package Inteface;
 
 public class IVehicle {
 	
