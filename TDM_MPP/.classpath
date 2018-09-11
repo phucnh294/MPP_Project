@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="View"/>
 	<classpathentry kind="src" path="Controller"/>
 	<classpathentry kind="src" path="DataAccess"/>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
