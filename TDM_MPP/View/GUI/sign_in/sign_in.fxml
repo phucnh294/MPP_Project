@@ -17,7 +17,7 @@
 
 	<Label text="User Name:" />
 
-	<TextField />
+	<TextField fx:id="usernameField"/>
 
 	<Label text="Password:" />
 
