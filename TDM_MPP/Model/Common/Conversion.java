@@ -47,7 +47,6 @@ public class Conversion implements SQLConstants {
 		Transport transport = new Transport();
 		try {
 			transport.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
-			transport.setCreatedDate(rs.getDate(DATE_CREATED_TRANSPORT_COLUMN).toLocalDate());
 			transport.setDescription(rs.getString(DESCRIPTION_TRANSPORT_COLUMN));
 			transport.setFuelType(rs.getString(FUEL_TYPE_TRANSPORT_COLUMN));
 			transport.setId(rs.getInt(ID_TRANSPORT_COLUMN));
