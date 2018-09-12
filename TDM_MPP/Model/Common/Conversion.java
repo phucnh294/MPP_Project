@@ -8,6 +8,8 @@ import User.Dealer;
 public class Conversion implements SQLConstants {
 
 	public static Dealer toDealer(ResultSet rs) {
+		if (rs == null) return null;
+		
 		Dealer dealer = new Dealer();
 //		dealer.setAddress(//TODO));
 		try {
