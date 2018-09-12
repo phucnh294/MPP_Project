@@ -3,9 +3,9 @@
  */
 package User;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import Common.Conversion;
 import Common.SQLConstants;
@@ -26,10 +26,12 @@ public class UserModel implements SQLConstants {
 	 */
 	public Dealer login(String username, String password) throws SQLException {
 
-		Statement stm = null;
+		PreparedStatement stm = null;
 		ResultSet rs;
 		try {
-			stm = DatabaseConnection.getInstance().getConnection().createStatement();
+			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(SIGNIN_SQL);
+			stm.setString(1, username);
+			stm.setString(2, password);
 			rs = stm.executeQuery(SIGNIN_SQL);
 			if (rs.next()) {
 				
