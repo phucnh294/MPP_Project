@@ -11,6 +11,7 @@ import java.util.List;
 
 import Common.Conversion;
 import Common.SQLConstants;
+import Interface.IParty;
 import User.Party;
 import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
@@ -19,7 +20,7 @@ import Utilities.DatabaseConnection;
  * @author ptkie
  *
  */
-public class PartyDAO implements SQLConstants{
+public class PartyDAO implements SQLConstants, IParty{
 	
 	/**
 	 * insert a new party
