@@ -24,7 +24,7 @@ public class UserModel implements SQLConstants {
 	 * @return
 	 * @throws SQLException
 	 */
-	public Dealer login(String username, String password) throws SQLException {
+	public Party login(String username, String password) throws SQLException {
 
 		PreparedStatement stm = null;
 		ResultSet rs;
@@ -35,7 +35,7 @@ public class UserModel implements SQLConstants {
 			rs = stm.executeQuery(SIGNIN_SQL);
 			if (rs.next()) {
 				
-				return Conversion.toDealer(rs);
+				return Conversion.toParty(rs);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
