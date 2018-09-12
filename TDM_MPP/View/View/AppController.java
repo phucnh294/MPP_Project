@@ -1,8 +1,10 @@
 package View;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
+import GUI.order.Order;
 import GUI.Customer.Customer;
 import GUI.Transport.AddTransport;
 import Vehicle.Transport;
@@ -82,6 +84,14 @@ public class AppController implements Initializable {
 //							UserList userList = new UserList(null);
 //							content.setText(name);
 //							content.setContent(userList.getTilePane());
+						} else if ("Order".equals(name)) {
+							Order contract = new Order(null);
+							content.setText(name);
+							content.setContent(contract.getTilePane());
+						} else if ("Car".equals(name)) {
+							AddTransport contract = new AddTransport(null);
+							content.setText(name);
+							content.setContent(contract.getTilePane());
 						}
 					}
 				}
