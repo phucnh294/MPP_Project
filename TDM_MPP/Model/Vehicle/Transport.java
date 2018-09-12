@@ -11,6 +11,51 @@ public class Transport {
 	private String model;
 	private String description;
 	private String manufactor;
+	private int seatCapacity;
+	private int fuelType;
+	private double mileage;
+	private int tranmissionType;
+	private int numberOfEngine;
+	private int transportType;
+	
+	
+	
+	public int getTransportType() {
+		return transportType;
+	}
+	public void setTransportType(int transportType) {
+		this.transportType = transportType;
+	}
+	public int getNumberOfEngine() {
+		return numberOfEngine;
+	}
+	public void setNumberOfEngine(int numberOfEngine) {
+		this.numberOfEngine = numberOfEngine;
+	}
+	public int getFuelType() {
+		return fuelType;
+	}
+	public void setFuelType(int fuelType) {
+		this.fuelType = fuelType;
+	}
+	public double getMileage() {
+		return mileage;
+	}
+	public void setMileage(double mileage) {
+		this.mileage = mileage;
+	}
+	public int getTranmissionType() {
+		return tranmissionType;
+	}
+	public void setTranmissionType(int tranmissionType) {
+		this.tranmissionType = tranmissionType;
+	}
+	public int getSeatCapacity() {
+		return seatCapacity;
+	}
+	public void setSeatCapacity(int seatCapacity) {
+		this.seatCapacity = seatCapacity;
+	}
 	public int getId() {
 		return id;
 	}
