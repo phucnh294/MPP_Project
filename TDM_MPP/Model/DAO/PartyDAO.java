@@ -15,9 +15,14 @@ import Utilities.DatabaseConnection;
  * @author ptkie
  *
  */
-public class CustomerDAO implements SQLConstants{
+public class PartyDAO implements SQLConstants{
 	
-	public void insertCustomer(Party party) throws SQLException {
+	/**
+	 * insert a new party
+	 * @param party
+	 * @throws SQLException
+	 */
+	public void insertParty(Party party) throws SQLException {
 		PreparedStatement stm = null;
 		try {
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(INSERT_PARTY_SQL);
@@ -36,5 +41,10 @@ public class CustomerDAO implements SQLConstants{
 			stm.close();
 		}
 	}
+	
+	public void updateParty(Party party) {
+		
+	}
+	
 
 }
