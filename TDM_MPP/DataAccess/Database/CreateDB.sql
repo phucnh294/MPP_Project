@@ -1,5 +1,5 @@
-Create Database DTM;
-use DTM;
+Create Database TDM;
+use TDM;
 
 CREATE TABLE Car (
 	ID INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,

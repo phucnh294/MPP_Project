@@ -1,5 +1,5 @@
 package User;
 
-public class Dealer {
+public class Dealer extends User {
 
 }
