@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import User.Party;
+import Vehicle.Transport;
 
 public class Conversion implements SQLConstants {
 
@@ -29,5 +30,40 @@ public class Conversion implements SQLConstants {
 		
 		
 		return party;
+	}
+	
+	/**
+	 * Convert data in resultset to transport object
+	 * 
+	 * @param rs
+	 * @return
+	 */
+	public static Transport toTransport(ResultSet rs) {
+		if (rs == null) return null;
+		
+		Transport transport = new Transport();
+		try {
+			transport.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
+			transport.setCreatedDate(rs.getDate(DATE_CREATED_TRANSPORT_COLUMN).toLocalDate());
+			transport.setDescription(rs.getString(DESCRIPTION_TRANSPORT_COLUMN));
+			transport.setFuelType(rs.getInt(FUEL_TYPE_TRANSPORT_COLUMN));
+			transport.setId(rs.getInt(ID_TRANSPORT_COLUMN));
+			transport.setManufactor(rs.getString(MANUFACTURER_TRANSPORT_COLUMN));
+			transport.setMileage(rs.getDouble(MILEAGE_TRANSPORT_COLUMN));
+			transport.setModel(rs.getString(MODEL_TRANSPORT_COLUMN));
+			transport.setName(rs.getString(NAME_TRANSPORT_COLUMN));
+			transport.setNumberOfEngine(rs.getInt(NUMBER_OF_ENGINE_TRANSPORT_COLUMN));
+			transport.setPrice(rs.getDouble(PRICE_TRANSPORT_COLUMN));
+			transport.setSeatCapacity(rs.getInt(SEAT_CAPACITY_TRANSPORT_COLUMN));
+			transport.setTranmissionType(rs.getInt(TRANMISSION_TYPE_TRANSPORT_COLUMN));
+			transport.setTransportType(rs.getInt(TRANSPORT_TYPE_TRANSPORT_COLUMN));
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}		
+		
+		return transport;
 	}
 }
