@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import GUI.Customer.Customer;
+import GUI.Transport.AddTransport;
+import Vehicle.Transport;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -56,14 +58,10 @@ public class AppController implements Initializable {
 //							Contract contract = new Contract();
 //							content.setText(name);
 //							content.setContent(contract.getGrid());
-						} else if ("Return Car".equals(name)) {
-//							AddCustomer addCustomer = new AddCustomer(null);
-//							content.setText(name);
-//							content.setContent(addCustomer.getTilePane());
 						} else if ("Add a new car".equals(name)) {
-//							AddCar addCar = new AddCar(null);
-//							content.setText(name);
-//							content.setContent(addCar.getTilePane());
+							AddTransport addCar = new AddTransport(null);
+							content.setText(name);
+							content.setContent(addCar.getTilePane());
 						} else if ("List cars".equals(name)) {
 //							CarList carList = new CarList(null);
 //							content.setText(name);
@@ -95,17 +93,17 @@ public class AppController implements Initializable {
 		root.getChildren().add(customer);
 		
 		TreeItem<String> car = new TreeItem<>("Car", getImageView("Car.png"));
-		TreeItem<String> addNewCar = new TreeItem<>("Add a new car", getImageView("add.png"));
-		car.getChildren().add(addNewCar);
-		TreeItem<String> listCar = new TreeItem<>("List cars", getImageView("list.png"));
-		car.getChildren().add(listCar);
+//		TreeItem<String> addNewCar = new TreeItem<>("Add a new car", getImageView("add.png"));
+//		car.getChildren().add(addNewCar);
+//		TreeItem<String> listCar = new TreeItem<>("List cars", getImageView("list.png"));
+//		car.getChildren().add(listCar);
 		root.getChildren().add(car);
 
 		TreeItem<String> contract = new TreeItem<>("Order", getImageView("contract.png"));
-		TreeItem<String> rentCar = new TreeItem<>("Create Order", getImageView("rentCar.png"));
-		contract.getChildren().add(rentCar);
-		TreeItem<String> returnCar = new TreeItem<>("List Order", getImageView("returnCar.jpeg"));
-		contract.getChildren().add(returnCar);
+//		TreeItem<String> rentCar = new TreeItem<>("Create Order", getImageView("rentCar.png"));
+//		contract.getChildren().add(rentCar);
+//		TreeItem<String> returnCar = new TreeItem<>("List Order", getImageView("returnCar.jpeg"));
+//		contract.getChildren().add(returnCar);
 		root.getChildren().add(contract);
 
 		// User

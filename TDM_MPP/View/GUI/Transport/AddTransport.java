@@ -1,4 +1,4 @@
-package GUI.Customer;
+package GUI.Transport;
 
 import java.io.IOException;
 
@@ -6,20 +6,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
-public class Customer {
+public class AddTransport extends Stage {
 	private Pane primaryPane;
 	private GridPane tilePane;
 
-	public Customer(Pane primaryStage) {
+	public AddTransport(Pane primaryStage) {
 		this.primaryPane = primaryStage;
 		loadResource();
 	}
-	
+
 	private void loadResource() {
 		try {
-			tilePane = (GridPane) FXMLLoader.load(getClass().getResource("Customer.fxml"));
-			tilePane.setAlignment(Pos.TOP_LEFT);	
+			tilePane = (GridPane) FXMLLoader.load(getClass().getResource("AddTransport.fxml"));
+			tilePane.setAlignment(Pos.TOP_LEFT);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -32,5 +33,4 @@ public class Customer {
 	public GridPane getTilePane() {
 		return tilePane;
 	}
-	
 }
