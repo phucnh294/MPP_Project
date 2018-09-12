@@ -135,14 +135,14 @@ public class OrderDAO implements SQLConstants {
 			StringBuffer sql = new StringBuffer(SEARCH_ORDER_SQL);
 			if (id > 0) {
 
-				sql.append(SEARCH_ORDER_ID_CONDITION_SQL.replaceAll("?", String.valueOf(id)));
+				sql.append(SEARCH_ORDER_ID_CONDITION_SQL.replaceAll("[?]", String.valueOf(id)));
 			}
 			if (customerName != null) {
-				sql.append(SEARCH_ORDER_PARTY_NAME_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(customerName)));
+				sql.append(SEARCH_ORDER_PARTY_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(customerName)));
 			}
 			if (transportName != null) {
 				sql.append(
-						SEARCH_ORDER_TRANSPORT_NAME_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(transportName)));
+						SEARCH_ORDER_TRANSPORT_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(transportName)));
 			}
 			sql.append(SEARCH_ORDER_SORT_SQL);
 

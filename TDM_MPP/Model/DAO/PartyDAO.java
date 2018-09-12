@@ -3,8 +3,6 @@
  */
 package DAO;
 
-import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,11 +33,11 @@ public class PartyDAO implements SQLConstants{
 			stm.setString(1, party.getName());
 			stm.setString(2, party.getPhone());
 			stm.setString(3, party.getEmail());
-			stm.setDate(4, Date.valueOf(party.getBirthDate()));
-			stm.setString(5, party.getPassword());
-			stm.setString(6, party.getType());
-			stm.setString(7, party.getHobbies());
-			stm.setInt(8, party.getMarriageStatus());
+			
+			stm.setString(4, party.getPassword());
+			stm.setString(5, party.getType());
+			stm.setString(6, party.getHobbies());
+			stm.setInt(7, party.getMarriageStatus());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -60,12 +58,11 @@ public class PartyDAO implements SQLConstants{
 			stm.setString(1, party.getName());
 			stm.setString(2, party.getPhone());
 			stm.setString(3, party.getEmail());
-			stm.setDate(4, Date.valueOf(party.getBirthDate()));
-			stm.setString(5, party.getPassword());
-			stm.setString(6, party.getType());
-			stm.setString(7, party.getHobbies());
-			stm.setInt(8, party.getMarriageStatus());
-			stm.setInt(9, party.getCustomerId());
+			stm.setString(4, party.getPassword());
+			stm.setString(5, party.getType());
+			stm.setString(6, party.getHobbies());
+			stm.setInt(7, party.getMarriageStatus());
+			stm.setInt(8, party.getCustomerId());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -110,16 +107,16 @@ public class PartyDAO implements SQLConstants{
 			StringBuffer sql = new StringBuffer(SEARCH_PARTY_SQL);
 			if(id != null) {
 				
-				sql.append(SEARCH_PARTY_ID_CONDITION_SQL.replaceAll("?", id));
+				sql.append(SEARCH_PARTY_ID_CONDITION_SQL.replaceAll("[?]", id));
 			}
 			if(name != null) {
-				sql.append(SEARCH_PARTY_NAME_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(name)));
+				sql.append(SEARCH_PARTY_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(name)));
 			}
 			if(email != null) {
-				sql.append(SEARCH_PARTY_EMAIL_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(email)));
+				sql.append(SEARCH_PARTY_EMAIL_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(email)));
 			}
 			if(phone != null) {
-				sql.append(SEARCH_PARTY_PHONE_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(phone)));
+				sql.append(SEARCH_PARTY_PHONE_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(phone)));
 			}
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(sql.toString());
 			ResultSet rs = stm.executeQuery();
