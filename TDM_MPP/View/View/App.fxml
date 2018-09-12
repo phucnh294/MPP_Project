@@ -8,8 +8,7 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" 
-prefWidth="1073.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AppController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="1073.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.AppController">
    <left>
       <TreeView fx:id="treeView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
@@ -30,7 +29,7 @@ prefWidth="1073.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.co
       </MenuBar>
    </top>
    <bottom>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ToolBar prefHeight="0.0" prefWidth="1074.0" BorderPane.alignment="CENTER" />
    </bottom>
    <center>
       <TitledPane fx:id="content" animated="false" text="Welcome" BorderPane.alignment="TOP_LEFT">
