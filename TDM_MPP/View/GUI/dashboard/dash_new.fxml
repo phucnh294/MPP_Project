@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
@@ -18,19 +17,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="600.0"
-	fx:controller="GUI.dashboard.DashboardController"
-	xmlns:fx="http://javafx.com/fxml" styleClass="root">
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="GUI.dashboard.DashboardController">
 	<children>
 		<Pane>
 			<children>
 			
-				<ImageView pickOnBounds="true" preserveRatio="true"
-					fitHeight="60" fitWidth="60" layoutX="5" layoutY="5">
+				<ImageView fitHeight="60" fitWidth="60" layoutX="5" layoutY="5" pickOnBounds="true" preserveRatio="true">
 
-					<image>
-						<Image url="img/user.png"></Image>
-					</image>
+					
 
 				</ImageView>
 
@@ -45,49 +39,45 @@
 			</children>
 		</Pane>
 
-		<SplitPane dividerPositions="0.2" focusTraversable="true"
-			VBox.vgrow="ALWAYS">
+		<SplitPane dividerPositions="0.2" focusTraversable="true" VBox.vgrow="ALWAYS">
 			<items>
 				<VBox prefHeight="100" prefWidth="100" spacing="5.0">
 					<padding>
 						<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 					</padding>
 
-					<Button id="btn_dashboard" mnemonicParsing="false"
-						text="DashBoard" styleClass="positiveButton"
-						onAction="#handleShowDashboard" />
+					<Button id="btn_dashboard" mnemonicParsing="false" onAction="#handleShowDashboard" styleClass="positiveButton" text="DashBoard" />
 
-					<Button layoutY="28.0" mnemonicParsing="false"
-						text="Add Transport" styleClass="positiveButton"
-						onAction="#handleAddTrans" />
+					<Button layoutY="28.0" mnemonicParsing="false" onAction="#handleAddTrans" styleClass="positiveButton" text="Add Transport" />
 
-					<Button layoutY="56.0" mnemonicParsing="false"
-						text="Show Customer" styleClass="positiveButton"
-						onAction="#handleShowCustomer" />
+					<Button layoutY="56.0" mnemonicParsing="false" onAction="#handleShowCustomer" styleClass="positiveButton" text="Show Customer" />
 
 					<Pane prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />
 
-					<Button id="btn_logout" styleClass="negativeButton"
-						text="Logout" onAction="#handleLogout" />
+					<Button id="btn_logout" onAction="#handleLogout" styleClass="negativeButton" text="Logout" />
 
 				</VBox>
 				<StackPane prefHeight="150.0" prefWidth="200.0">
 					<children>
 						<VBox prefHeight="200.0" prefWidth="100.0">
 							<children>
-								<TextField promptText="Search" />
-								<ListView prefHeight="456.0" prefWidth="715.0" />
+								<TextField id="searchValue" promptText="Search" />
+                        <TableView fx:id="carList" prefHeight="282.0" prefWidth="475.0">
+                          <columns>
+                            <TableColumn fx:id="carName" prefWidth="75.0" text="Name" />
+                            <TableColumn fx:id="carModel" prefWidth="75.0" text="Model" />
+                              <TableColumn fx:id="carPrice" prefWidth="75.0" text="Price" />
+                          </columns>
+                        </TableView>
 							</children>
 						</VBox>
 					</children>
 				</StackPane>
 			</items>
 		</SplitPane>
-		<HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0"
-			VBox.vgrow="NEVER">
+		<HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
 			<children>
-				<Label maxHeight="1.7976931348623157E308" maxWidth="-1.0"
-					text="Copyright" HBox.hgrow="ALWAYS">
+				<Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Copyright" HBox.hgrow="ALWAYS">
 					<font>
 						<Font size="11.0" fx:id="x3" />
 					</font>
@@ -96,9 +86,7 @@
 					</textFill>
 				</Label>
 				<Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-				<Label font="$x3" maxWidth="-1.0"
-					text="Maharishi University of Management" textFill="$x4"
-					HBox.hgrow="NEVER" />
+				<Label font="$x3" maxWidth="-1.0" text="Maharishi University of Management" textFill="$x4" HBox.hgrow="NEVER" />
 			</children>
 			<padding>
 				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

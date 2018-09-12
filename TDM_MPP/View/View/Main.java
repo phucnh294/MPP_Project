@@ -1,14 +1,46 @@
 package View;
 
-import Controller.TDMContoller;
+import GUI.sign_in.SignIn;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
+public class Main extends Application {
+	private static Stage primaryStage;
+	private static Stage loginStage;
+	@Override
+	public void start(Stage primaryStage) {
+		Main.primaryStage = primaryStage;
+		try {
+			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("App.fxml"));
+			Scene scene = new Scene(root, 1000, 700);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
-public class Main {
+			primaryStage.setTitle("Transport Dealership Management");
+			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
+			SignIn login = new SignIn(primaryStage);
+			login.setResizable(false);
+			loginStage = login;
+			login.show();
+//			primaryStage.show();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Stage getLoginStage() {
+		return loginStage;
+	}
+
+	public static Stage getPrimaryStage() {
+		return primaryStage;
+	}
+
 	public static void main(String[] args) {
-		System.out.println("this is main class for view");
-		TDMContoller tdmContoller = new TDMContoller();
-		
-		tdmContoller.printDataController();
-		
+		launch(args);
 	}
 }

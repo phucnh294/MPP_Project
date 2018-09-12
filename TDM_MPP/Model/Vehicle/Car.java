@@ -1,6 +1,10 @@
 package Vehicle;
 
 public class Car extends Transport {
+	public Car(int id, String name, String brand, double price) {
+		super(id, name, brand, price);
+		// TODO Auto-generated constructor stub
+	}
 	private int seatCapacity;
 	private int fuelType;
 	private double mileage;
