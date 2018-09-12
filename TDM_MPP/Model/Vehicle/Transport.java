@@ -12,18 +12,18 @@ public class Transport {
 	private String description;
 	private String manufactor;
 	private int seatCapacity;
-	private int fuelType;
+	private String fuelType;
 	private double mileage;
 	private int tranmissionType;
 	private int numberOfEngine;
-	private int transportType;
+	private String transportType;
 	
 	
 	
-	public int getTransportType() {
+	public String getTransportType() {
 		return transportType;
 	}
-	public void setTransportType(int transportType) {
+	public void setTransportType(String transportType) {
 		this.transportType = transportType;
 	}
 	public int getNumberOfEngine() {
@@ -32,10 +32,10 @@ public class Transport {
 	public void setNumberOfEngine(int numberOfEngine) {
 		this.numberOfEngine = numberOfEngine;
 	}
-	public int getFuelType() {
+	public String getFuelType() {
 		return fuelType;
 	}
-	public void setFuelType(int fuelType) {
+	public void setFuelType(String fuelType) {
 		this.fuelType = fuelType;
 	}
 	public double getMileage() {

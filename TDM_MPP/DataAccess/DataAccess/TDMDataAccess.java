@@ -15,9 +15,11 @@ public class TDMDataAccess {
 			
 			con = DatabaseConnection.getInstance().getConnection();
 			stmt=con.createStatement();  
-			
-			ResultSet rs=stmt.executeQuery("select * from Bike");  
-			System.out.println(rs);
+			String sql = "INSERT INTO PARTY (NAME, PHONE, EMAIL, BIRTHDATE, PASSWORD, TYPE, HOBBIES, MARRIAGE_STATUS) " + 
+					"VALUES ('Kien PHam1', '6122242661', '', null, '', 1,'', 1);";
+			boolean value = stmt.execute(sql);
+			ResultSet rs=stmt.executeQuery("select * from Party");  
+			System.out.println(value);
 //			while(rs.next())  
 //			System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
 			stmt.close();  

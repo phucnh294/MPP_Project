@@ -135,5 +135,34 @@ public class PartyDAO implements SQLConstants{
 		return searchResult;
 	}
 	
+	/**
+	 * login
+	 * @param username
+	 * @param password
+	 * @return
+	 * @throws SQLException
+	 */
+	public Party login(String username, String password) throws SQLException {
+
+		PreparedStatement stm = null;
+		ResultSet rs;
+		try {
+			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(SIGNIN_SQL);
+			stm.setString(1, username);
+			stm.setString(2, password);
+			rs = stm.executeQuery(SIGNIN_SQL);
+			if (rs.next()) {
+				
+				return Conversion.toParty(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			stm.close();
+		}
+
+		return null;
+	}	
+	
 
 }

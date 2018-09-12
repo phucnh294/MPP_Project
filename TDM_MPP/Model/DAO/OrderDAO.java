@@ -12,7 +12,8 @@ import java.util.List;
 
 import Common.Conversion;
 import Common.SQLConstants;
-import User.Party;
+import Order.Order;
+import Order.OrderTransport;
 import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
 
@@ -20,81 +21,106 @@ import Utilities.DatabaseConnection;
  * @author ptkie
  *
  */
-public class OrderDAO implements SQLConstants{
-	
+public class OrderDAO implements SQLConstants {
+
 	/**
 	 * insert a new party
+	 * 
 	 * @param party
 	 * @throws SQLException
 	 */
-//	public void insertOrder(Order) throws SQLException {
-//		PreparedStatement stm = null;
-//		try {
-//			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(INSERT_PARTY_SQL);
-//			stm.setString(1, party.getName());
-//			stm.setString(2, party.getPhone());
-//			stm.setString(3, party.getEmail());
-//			stm.setDate(4, Date.valueOf(party.getBirthDate()));
-//			stm.setString(5, party.getPassword());
-//			stm.setString(6, party.getType());
-//			stm.setString(7, party.getHobbies());
-//			stm.setInt(8, party.getMarriageStatus());
-//			stm.execute();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} finally {
-//			stm.close();
-//		}
-//	}
-	
+	public void insertOrder(Order order, List<OrderTransport> orderTransports) throws SQLException {
+		PreparedStatement orderStm = null;
+		PreparedStatement orderTransportsStm = null;
+		boolean currentAutoCommit = DatabaseConnection.getInstance().getConnection().getAutoCommit();
+		try {
+
+			DatabaseConnection.getInstance().getConnection().setAutoCommit(false);
+			orderStm = DatabaseConnection.getInstance().getConnection().prepareStatement(INSERT_ORDER_SQL);
+			orderStm.setDouble(1, order.getAmount());
+			orderStm.setDate(2, Date.valueOf(order.getOrderDate()));
+			orderStm.setInt(3, order.getCustomerID());
+			orderStm.setInt(4, order.getDealerID());
+			orderStm.execute();
+
+			orderTransportsStm = DatabaseConnection.getInstance().getConnection()
+					.prepareStatement(INSERT_ORDER_TRANSPORT_SQL);
+			for (OrderTransport ot : orderTransports) {
+				orderTransportsStm.setInt(1, ot.getOrderID());
+				orderTransportsStm.setInt(2, ot.getTransportID());
+				orderTransportsStm.setDouble(3, ot.getPrice());
+				orderTransportsStm.addBatch();
+			}
+			orderTransportsStm.executeBatch();
+			DatabaseConnection.getInstance().getConnection().commit();
+
+		} catch (SQLException e) {
+			DatabaseConnection.getInstance().getConnection().rollback();
+			e.printStackTrace();
+		} finally {
+			DatabaseConnection.getInstance().getConnection().setAutoCommit(currentAutoCommit);
+			orderStm.close();
+			orderTransportsStm.close();
+		}
+	}
+
 	/**
-	 * update a given party
+	 * update a given transport
+	 * 
 	 * @param party
 	 * @throws SQLException
 	 */
-	public void updateParty(Party party) throws SQLException {
+	public void updateOrder(Order ord) throws SQLException {
 		PreparedStatement stm = null;
 		try {
-			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(UPDATE_PARTY_SQL);
-			stm.setString(1, party.getName());
-			stm.setString(2, party.getPhone());
-			stm.setString(3, party.getEmail());
-			stm.setDate(4, Date.valueOf(party.getBirthDate()));
-			stm.setString(5, party.getPassword());
-			stm.setString(6, party.getType());
-			stm.setString(7, party.getHobbies());
-			stm.setInt(8, party.getMarriageStatus());
-			stm.setInt(9, party.getCustomerId());
+			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(UPDATE_ORDER_SQL);
+			stm.setDouble(1, ord.getAmount());
+			stm.setDate(2, Date.valueOf(ord.getOrderDate()));
+			stm.setInt(3, ord.getCustomerID());
+			stm.setInt(4, ord.getDealerID());
+			stm.setInt(5, ord.getId());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			stm.close();
 		}
-		
+
 	}
-	
+
 	/**
 	 * delete a given party
+	 * 
 	 * @param party
 	 * @throws SQLException
 	 */
-	public void deleteParty(Party party) throws SQLException {
+	public void deleteOrder(Order ord) throws SQLException {
 		PreparedStatement stm = null;
+		PreparedStatement stm2 = null;
+		boolean currentAutoCommit = DatabaseConnection.getInstance().getConnection().getAutoCommit();
 		try {
-			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(DELETE_PARTY_SQL);			
-			stm.setInt(1, party.getCustomerId());
+			DatabaseConnection.getInstance().getConnection().setAutoCommit(false);
+			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(DELETE_ORDER_SQL);
+			stm.setInt(1, ord.getId());
 			stm.execute();
+			stm2 = DatabaseConnection.getInstance().getConnection().prepareStatement(DELETE_ORDER_TRANSPORT_SQL);
+			stm2.setInt(1, ord.getId());
+			stm2.execute();
+			DatabaseConnection.getInstance().getConnection().commit();
 		} catch (SQLException e) {
+			DatabaseConnection.getInstance().getConnection().rollback();
 			e.printStackTrace();
 		} finally {
+			DatabaseConnection.getInstance().getConnection().setAutoCommit(currentAutoCommit);
 			stm.close();
+			stm2.close();
 		}
-		
+
 	}
-	
-	/** 
+
+	/**
 	 * search parties by given conditions
+	 * 
 	 * @param id
 	 * @param name
 	 * @param email
@@ -102,37 +128,38 @@ public class OrderDAO implements SQLConstants{
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<Party> search(String id, String name, String email, String phone) throws SQLException {
-		List<Party> searchResult = new ArrayList<>();
+	public List<Order> search(int id, String customerName, String transportName) throws SQLException {
+		List<Order> searchResult = new ArrayList<>();
 		PreparedStatement stm = null;
 		try {
-			StringBuffer sql = new StringBuffer(SEARCH_PARTY_SQL);
-			if(id != null) {
-				
-				sql.append(SEARCH_PARTY_ID_CONDITION_SQL.replaceAll("?", id));
+			StringBuffer sql = new StringBuffer(SEARCH_ORDER_SQL);
+			if (id > 0) {
+
+				sql.append(SEARCH_ORDER_ID_CONDITION_SQL.replaceAll("?", String.valueOf(id)));
 			}
-			if(name != null) {
-				sql.append(SEARCH_PARTY_NAME_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(name)));
+			if (customerName != null) {
+				sql.append(SEARCH_ORDER_PARTY_NAME_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(customerName)));
 			}
-			if(email != null) {
-				sql.append(SEARCH_PARTY_EMAIL_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(email)));
+			if (transportName != null) {
+				sql.append(
+						SEARCH_ORDER_TRANSPORT_NAME_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(transportName)));
 			}
-			if(phone != null) {
-				sql.append(SEARCH_PARTY_PHONE_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(phone)));
-			}
+			sql.append(SEARCH_ORDER_SORT_SQL);
+
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(sql.toString());
+
 			ResultSet rs = stm.executeQuery();
+
 			while (rs.next()) {
-				searchResult.add(Conversion.toParty(rs));
+				Conversion.toOrderTransports(rs, searchResult);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			stm.close();
 		}
-		
+
 		return searchResult;
 	}
-	
 
 }

@@ -40,10 +40,10 @@ public class TransportDAO implements SQLConstants {
 			stm.setString(6, transport.getManufactor());
 			stm.setString(7, transport.getDescription());
 			stm.setInt(8, transport.getSeatCapacity());
-			stm.setInt(9, transport.getFuelType());
+			stm.setString(9, transport.getFuelType());
 			stm.setDouble(10, transport.getMileage());
 			stm.setInt(11, transport.getNumberOfEngine());
-			stm.setInt(12, transport.getTransportType());
+			stm.setString(12, transport.getTransportType());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class TransportDAO implements SQLConstants {
 			stm.setString(6, transport.getManufactor());
 			stm.setString(7, transport.getDescription());
 			stm.setInt(8, transport.getSeatCapacity());
-			stm.setInt(9, transport.getFuelType());
+			stm.setString(9, transport.getFuelType());
 			stm.setDouble(10, transport.getMileage());
 			stm.setInt(11, transport.getNumberOfEngine());
 			stm.setInt(12, transport.getId());

@@ -4,6 +4,9 @@
 package Order;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import Vehicle.Transport;
 
 /**
  * @author ptkie
@@ -16,6 +19,14 @@ public class Order {
 	private LocalDate orderDate;
 	private int customerID;
 	private int dealerID;
+	private List<Transport> transports;	
+	
+	public List<Transport> getTransports() {
+		return transports;
+	}
+	public void setTransports(List<Transport> transports) {
+		this.transports = transports;
+	}
 	public int getId() {
 		return id;
 	}
