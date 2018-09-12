@@ -75,12 +75,12 @@ public class DashboardController implements Initializable {
     
     private ObservableList<Transport> getTransportList() {
     	 
-    	Transport trans1 = new Transport(1, "ABC", "Mec", 1234);
-    	Transport trans2 = new Transport(2, "ABC2", "Mec", 1234);
-    	Transport trans3 = new Transport(3, "ABC3", "Mec", 1234);
-   
-        ObservableList<Transport> list = FXCollections.observableArrayList(trans1, trans2, trans3);
-        return list;
+//    	Transport trans1 = new Transport(1, "ABC", "Mec", 1234);
+//    	Transport trans2 = new Transport(2, "ABC2", "Mec", 1234);
+//    	Transport trans3 = new Transport(3, "ABC3", "Mec", 1234);
+//   
+//        ObservableList<Transport> list = FXCollections.observableArrayList(trans1, trans2, trans3);
+        return null;
     }
     
     private void setUpTable() {

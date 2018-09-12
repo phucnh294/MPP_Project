@@ -7,7 +7,7 @@ import Vehicle.Transport;
 
 public class TransportService implements ITransport {
 	public Transport getTransport(int id) {		
-		return new Transport(id, null, null, id);
+		return new Transport();
 	}
 	
 	public ArrayList<Transport> getAllTransport(){
