@@ -9,5 +9,6 @@ public class Main {
 		TDMContoller tdmContoller = new TDMContoller();
 		
 		tdmContoller.printDataController();
+		
 	}
 }
