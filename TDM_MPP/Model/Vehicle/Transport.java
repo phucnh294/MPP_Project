@@ -11,6 +11,7 @@ public class Transport {
 	private String model;
 	private String description;
 	private String manufactor;
+	
 	public int getId() {
 		return id;
 	}
