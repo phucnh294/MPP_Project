@@ -6,7 +6,7 @@ import java.time.LocalDate;
 	private String password;
 	private String name;
 	private String email;
-	private int phone;
+	private String phone;
 	private String address;
 	private LocalDate birthDate;
 	public String getUsername() {
@@ -27,10 +27,10 @@ import java.time.LocalDate;
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getAddress() {

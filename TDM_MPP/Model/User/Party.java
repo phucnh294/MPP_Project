@@ -1,8 +1,26 @@
 package User;
 
-public class Customer extends User{
+public class Party extends User {
 	private int customerId;
 	private String type;
+	private String hobbies;
+	private int marriageStatus;	
+	
+	public int getMarriageStatus() {
+		return marriageStatus;
+	}
+
+	public void setMarriageStatus(int marriageStatus) {
+		this.marriageStatus = marriageStatus;
+	}
+
+	public String getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(String hobbies) {
+		this.hobbies = hobbies;
+	}
 
 	public int getCustomerId() {
 		return customerId;
