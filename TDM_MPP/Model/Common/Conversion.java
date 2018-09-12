@@ -11,12 +11,12 @@ public class Conversion implements SQLConstants {
 		Dealer dealer = new Dealer();
 //		dealer.setAddress(//TODO));
 		try {
-			dealer.setBirthDate(rs.getDate(BIRTHDATE_COLUMN).toLocalDate());
-			dealer.setEmail(rs.getString(EMAIL_COLUMN));
-			dealer.setName(rs.getString(NAME_COLUMN));
-			dealer.setPassword(rs.getString(PASSWORD_COLUMN));
-			dealer.setPhone(rs.getInt(PHONE_COLUMN));
-			dealer.setUsername(rs.getString(EMAIL_COLUMN));
+			dealer.setBirthDate(rs.getDate(BIRTHDATE_PARTY_COLUMN).toLocalDate());
+			dealer.setEmail(rs.getString(EMAIL_PARTY_COLUMN));
+			dealer.setName(rs.getString(NAME_PARTY_COLUMN));
+			dealer.setPassword(rs.getString(PASSWORD_PARTY_COLUMN));
+			dealer.setPhone(rs.getString(PHONE_PARTY_COLUMN));
+			dealer.setUsername(rs.getString(EMAIL_PARTY_COLUMN));
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
