@@ -111,13 +111,13 @@ public class PartyDAO implements SQLConstants, IParty{
 				sql.append(SEARCH_PARTY_ID_CONDITION_SQL.replaceAll("[?]", id));
 			}
 			if(name != null) {
-				sql.append(SEARCH_PARTY_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(name)));
+				sql.append(SEARCH_PARTY_NAME_CONDITION_SQL.replaceAll("[?]",name));
 			}
 			if(email != null) {
-				sql.append(SEARCH_PARTY_EMAIL_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(email)));
+				sql.append(SEARCH_PARTY_EMAIL_CONDITION_SQL.replaceAll("[?]", email));
 			}
 			if(phone != null) {
-				sql.append(SEARCH_PARTY_PHONE_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(phone)));
+				sql.append(SEARCH_PARTY_PHONE_CONDITION_SQL.replaceAll("[?]", phone));
 			}
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(sql.toString());
 			ResultSet rs = stm.executeQuery();

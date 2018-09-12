@@ -71,7 +71,7 @@ public class PartyDAOTest {
 		
 //		partyDAO.deleteParty(party);
 		
-		List<Party> parties = partyDAO.search("2", "Kien", null, null);
+		List<Party> parties = partyDAO.search(null, null, "gmail", "12");
 		System.out.println(parties);
 		
 
