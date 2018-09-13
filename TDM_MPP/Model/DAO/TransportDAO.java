@@ -124,7 +124,7 @@ public class TransportDAO implements SQLConstants {
 			if (toPrice > 0) {
 				sql.append(SEARCH_TRANSPORT_TO_PRICE_CONDITION_SQL.replaceAll("[?]", String.valueOf(toPrice)));
 			}
-			if (manufacturer != null) {
+			if (manufacturer != null && manufacturer.trim().length() != 0) {
 				sql.append(SEARCH_TRANSPORT_MANUFACTURER_CONDITION_SQL.replaceAll("[?]", manufacturer));
 			}
 			if (seatCapacity > 0) {
