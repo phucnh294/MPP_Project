@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -48,13 +49,18 @@ public class AddTransportController implements Initializable {
 	TableColumn<Transport, Double> priceCol;
 	@FXML
 	TableColumn<Transport, String> modelCol;
+	@FXML RadioButton carRadio, bicycleRadio, motorbikeRadio;
+	
+	private final String CAR = "CAR";
+	private final String MOTORBIKE = "MOTORBIKE";
+	private final String BICYCLE = "BICYCLE";
 
 	@FXML
 	TableView<Transport> CusTableList;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		
 		setUpTable();
 		loadData();
 		CusTableList.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -67,6 +73,22 @@ public class AddTransportController implements Initializable {
 				model.setText(tran.getModel());
 				description.setText(tran.getDescription());
 				price.setText(String.valueOf(tran.getPrice()));
+				if(tran.getTransportType() != null) {
+					switch (tran.getTransportType()) {
+					case CAR:
+						carRadio.setSelected(true);
+						break;
+					case MOTORBIKE:
+						motorbikeRadio.setSelected(true);
+						break;
+					case BICYCLE:
+						bicycleRadio.setSelected(true);
+						break;
+					default:
+						break;
+					}
+				}
+				
 
 			}
 		});
@@ -108,6 +130,7 @@ public class AddTransportController implements Initializable {
 		tran.setMileage(10000);
 		tran.setModel(model.getText());
 		tran.setNumberOfEngine(1);
+		tran.setTransportType(getTranType());
 		if (price.getText() != null && price.getText().length() > 0) {
 			try {
 				tran.setPrice(Double.parseDouble(price.getText().trim()));
@@ -175,6 +198,7 @@ public class AddTransportController implements Initializable {
 		tran.setBrand(brand.getText());
 		tran.setModel(model.getText());
 		tran.setDescription(description.getText());
+		tran.setTransportType(getTranType());
 		if (price.getText() != null && price.getText().length() > 0) {
 			try {
 				tran.setPrice(Double.parseDouble(price.getText().trim()));
@@ -209,6 +233,21 @@ public class AddTransportController implements Initializable {
 		brand.setText("");
 		model.setText("");
 		description.setText("");
+		carRadio.setSelected(false);
+		motorbikeRadio.setSelected(false);
+		bicycleRadio.setSelected(false);
+	}
+	
+	private String getTranType() {
+		String type = "";
+		if(carRadio.isSelected()) {
+			type = CAR;
+		} else if(motorbikeRadio.isSelected()) {
+			type = MOTORBIKE;
+		} else if(bicycleRadio.isSelected()) {
+			type = BICYCLE;
+		}
+		return type;
 	}
 
 }
