@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -137,7 +138,7 @@
          </rowConstraints>
          <children>
             <Label maxWidth="82.0" minWidth="70.0" prefHeight="22.0" prefWidth="82.0" text="Description" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
-            <TextField fx:id="description1" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Description" GridPane.columnIndex="1" />
+            <TextField fx:id="description" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Description" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <GridPane prefHeight="33.0" prefWidth="640.0" GridPane.rowIndex="6">
@@ -151,13 +152,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label maxWidth="82.0" minWidth="70.0" prefHeight="22.0" prefWidth="82.0" text="Transport Type" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
-            <RadioButton fx:id="carRadio"  mnemonicParsing="false" text="Car" GridPane.columnIndex="1" toggleGroup="$transportType"/>
-            <RadioButton fx:id="bicycleRadio" mnemonicParsing="false" text="Bicycle" GridPane.columnIndex="3" toggleGroup="$transportType"/>
-            <RadioButton fx:id="motorbikeRadio" mnemonicParsing="false" text="Motorbike" GridPane.columnIndex="2" toggleGroup="$transportType"/>
-            <toggleGroup>
+            <Label maxWidth="114.0" minWidth="70.0" prefHeight="22.0" prefWidth="114.0" text="Transport Type" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+             
+            <RadioButton fx:id="carRadio" mnemonicParsing="false" text="Car" GridPane.columnIndex="1">
+               <toggleGroup>
                   <ToggleGroup fx:id="transportType" />
-               </toggleGroup>
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="bicycleRadio" mnemonicParsing="false" text="Bicycle" toggleGroup="$transportType" GridPane.columnIndex="3" />
+            <RadioButton fx:id="motorbikeRadio" mnemonicParsing="false" text="Motorbike" toggleGroup="$transportType" GridPane.columnIndex="2" />
+            
          </children>
       </GridPane>
       <TableView fx:id="CusTableList" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="707.0" GridPane.rowIndex="7">

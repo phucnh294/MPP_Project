@@ -52,8 +52,8 @@ public class SignInController {
         }
     }
     
-	@FXML protected void handleRegister(ActionEvent event) {
+	/*@FXML protected void handleRegister(ActionEvent event) {
         actiontarget.setText("Sign Up button pressed");
-    }
+    }*/
 
 }

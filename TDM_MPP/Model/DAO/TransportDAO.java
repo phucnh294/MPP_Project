@@ -72,7 +72,8 @@ public class TransportDAO implements SQLConstants, ITransport {
 			stm.setDouble(9, transport.getMileage());
 			stm.setInt(10, transport.getTranmissionType());
 			stm.setInt(11, transport.getNumberOfEngine());
-			stm.setInt(12, transport.getId());
+			stm.setString(12, transport.getTransportType());
+			stm.setInt(13, transport.getId());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -99,7 +100,7 @@ public class TransportDAO implements SQLConstants, ITransport {
 			try {
 				stm.close();
 			} catch (SQLException e) {
-				
+
 				e.printStackTrace();
 			}
 		}
@@ -177,7 +178,7 @@ public class TransportDAO implements SQLConstants, ITransport {
 			try {
 				stm.close();
 			} catch (SQLException e) {
-				
+
 				e.printStackTrace();
 			}
 		}
