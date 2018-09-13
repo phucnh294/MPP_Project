@@ -15,6 +15,7 @@ import Order.OrderTransport;
 import Service.OrderFactory;
 import Service.PartyFactory;
 import User.Party;
+import Utilities.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -93,6 +94,9 @@ public class OrderController implements Initializable{
 	}
 	
 	@FXML protected void onCreateOrder_Click(ActionEvent event) {
+		if(!Validation.isValidField(amount, customerId, dealerId)) {
+			return;
+		}
 		String id = this.Id.getText();
 		String amount= this.amount.getText();
 		String customerId= this.customerId.getText();
@@ -142,6 +146,11 @@ public class OrderController implements Initializable{
 		Message(AlertType.INFORMATION, "Remove Success","Your Order was removed");		
 	}
 	@FXML protected void onEditOrder_Click(ActionEvent event) {
+		
+		if(!Validation.isValidField(amount, customerId, dealerId)) {
+			return;
+		}
+		
 		String id = this.Id.getText();
 		String amount= this.amount.getText();
 		String customerId= this.customerId.getText();
