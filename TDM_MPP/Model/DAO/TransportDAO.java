@@ -3,7 +3,6 @@
  */
 package DAO;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +11,6 @@ import java.util.List;
 
 import Common.Conversion;
 import Common.SQLConstants;
-import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
 import Vehicle.Transport;
 
