@@ -15,7 +15,7 @@ import Interface.IParty;
 import User.Party;
 import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
-
+//teststse
 /**
  * @author ptkie
  *
@@ -128,8 +128,7 @@ public class PartyDAO implements SQLConstants, IParty{
 			e.printStackTrace();
 		} finally {
 			stm.close();
-		}
-		
+		}		
 		return searchResult;
 	}
 	

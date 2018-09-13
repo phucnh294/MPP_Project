@@ -11,6 +11,7 @@ import java.util.List;
 
 import Common.Conversion;
 import Common.SQLConstants;
+import Interface.ITransport;
 import Utilities.DatabaseConnection;
 import Vehicle.Transport;
 
@@ -18,7 +19,7 @@ import Vehicle.Transport;
  * @author ptkie
  *
  */
-public class TransportDAO implements SQLConstants {
+public class TransportDAO implements SQLConstants, ITransport {
 
 	/**
 	 * insert a new party

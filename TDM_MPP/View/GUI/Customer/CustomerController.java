@@ -15,7 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
+
 public class CustomerController implements Initializable{
 	List<Party> data;
 	private IParty iparty = PartyFactory.createInstance();
@@ -55,7 +55,20 @@ public class CustomerController implements Initializable{
 	}
 	
 	@FXML protected void onCreateCustomer_Click(ActionEvent event) {
-		 
+		String id = this.Id.getText();
+		String name= this.name.getText();
+		String phone= this.phone.getText();
+		String email = this.email.getText();
+		Party party = new Party();
+		party.setName(name);
+		party.setPhone(phone);
+		party.setEmail(email);
+		try {
+			iparty.insertParty(party);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML protected void onSearch_Click(ActionEvent event) throws Exception {

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Customer.CustomerController">
+<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Transport.AddTransportController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
    </columnConstraints>
@@ -60,7 +60,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="createBTN" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Create Transport" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="createTransportBtn" mnemonicParsing="false" onAction="#onCreateTransport_Click" prefHeight="27.0" prefWidth="130.0" text="Create Transport" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <GridPane prefWidth="80.0" GridPane.rowIndex="2">
@@ -83,7 +83,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="filterBTN" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Button fx:id="searchTransportBtn" mnemonicParsing="false" onAction="#SearchTransport_Click" prefHeight="27.0" prefWidth="130.0" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="3">
@@ -106,7 +106,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="135.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="clearTrannsportBtn" mnemonicParsing="false" onAction="#onClearTransport_Click" prefHeight="27.0" prefWidth="135.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <GridPane prefHeight="33.0" prefWidth="640.0" GridPane.rowIndex="4">
@@ -170,8 +170,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Remove" GridPane.halignment="CENTER" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button fx:id="removeTransportBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRemoveTransport_Click" prefWidth="100.0" text="Remove" GridPane.halignment="CENTER" />
+            <Button fx:id="editTransportBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEditTransport_Click" prefWidth="100.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
    </children>
