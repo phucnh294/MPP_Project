@@ -11,6 +11,7 @@ import GUI.Customer.Customer;
 import Interface.IOrder;
 import Interface.IParty;
 import Order.Order;
+import Order.OrderDetail;
 import Order.OrderTransport;
 import Service.OrderFactory;
 import Service.PartyFactory;
@@ -48,18 +49,18 @@ public class OrderController implements Initializable{
 		setUpTable();
 		loadData();
 		
-		orderTableList.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-		    if (newSelection != null) {
-		    	
-		    	Order order =orderTableList.getSelectionModel().getSelectedItem();
-		    	
-		    	privateOrderId =order.getId();
-		    	this.Id.setText(Integer.toString(order.getId()));
-		    	this.amount.setText(Double.toString(order.getAmount()));
-		    	this.customerId.setText(Integer.toString(order.getCustomerID()));
-		    	this.dealerId.setText(Integer.toString(order.getDealerID()));
-		    }
-		});
+//		orderTableList.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+//		    if (newSelection != null) {
+//		    	
+//		    	Order order =orderTableList.getSelectionModel().getSelectedItem();
+//		    	
+//		    	privateOrderId =order.getId();
+//		    	this.Id.setText(Integer.toString(order.getId()));
+//		    	this.amount.setText(Double.toString(order.getAmount()));
+//		    	this.customerId.setText(Integer.toString(order.getCustomerID()));
+//		    	this.dealerId.setText(Integer.toString(order.getDealerID()));
+//		    }
+//		});
 	}
 	
 	private void setUpTable() {

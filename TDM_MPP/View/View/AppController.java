@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import GUI.order.OrderView;
 import GUI.Customer.Customer;
 import GUI.Transport.AddTransport;
+import GUI.User.UserView;
 import Vehicle.Transport;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -68,6 +69,10 @@ public class AppController implements Initializable {
 							AddTransport contract = new AddTransport(null);
 							content.setText(name);
 							content.setContent(contract.getTilePane());
+						}else if ("User".equals(name)) {
+							UserView userView = new UserView(null);
+							content.setText(name);
+							content.setContent(userView.getTilePane());
 						}
 					}
 				}
@@ -95,10 +100,10 @@ public class AppController implements Initializable {
 		// User
 		management = new TreeItem<>("Management", getImageView("Management.png"));
 		root.getChildren().add(management);
-		TreeItem<String> createUser = new TreeItem<>("Create User", getImageView("createUser.png"));
+		TreeItem<String> createUser = new TreeItem<>("User", getImageView("createUser.png"));
 		management.getChildren().add(createUser);
-		TreeItem<String> listUser = new TreeItem<>("List User", getImageView("listUser.png"));
-		management.getChildren().add(listUser);
+//		TreeItem<String> listUser = new TreeItem<>("List User", getImageView("listUser.png"));
+//		management.getChildren().add(listUser);
 
 	}
 

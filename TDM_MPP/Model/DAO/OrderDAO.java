@@ -14,6 +14,7 @@ import Common.Conversion;
 import Common.SQLConstants;
 import Interface.IOrder;
 import Order.Order;
+import Order.OrderDetail;
 import Order.OrderTransport;
 import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
@@ -152,7 +153,7 @@ public class OrderDAO implements SQLConstants,IOrder {
 			ResultSet rs = stm.executeQuery();
 
 			while (rs.next()) {
-				Conversion.toOrderTransports(rs, searchResult);
+				searchResult.add(Conversion.toOrderTransports(rs, searchResult));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -163,4 +164,37 @@ public class OrderDAO implements SQLConstants,IOrder {
 		return searchResult;
 	}
 
+//	public List<OrderDetail> searchDetail(int id, String customerName, String transportName) throws SQLException {
+//		List<OrderDetail> searchResult = new ArrayList<>();
+//		PreparedStatement stm = null;
+//		try {
+//			StringBuffer sql = new StringBuffer(SEARCH_ORDER_SQL);
+//			if (id > 0) {
+//
+//				sql.append(SEARCH_ORDER_ID_CONDITION_SQL.replaceAll("[?]", String.valueOf(id)));
+//			}
+//			if (customerName != null && customerName.trim().length() != 0) {
+//				sql.append(SEARCH_ORDER_PARTY_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(customerName)));
+//			}
+//			if (transportName != null && transportName.trim().length() != 0) {
+//				sql.append(
+//						SEARCH_ORDER_TRANSPORT_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(transportName)));
+//			}
+//			sql.append(SEARCH_ORDER_SORT_SQL);
+//
+//			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(sql.toString());
+//
+//			ResultSet rs = stm.executeQuery();
+//
+//			while (rs.next()) {
+//				Conversion.toOrderTransports(rs, searchResult);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			stm.close();
+//		}
+//
+//		return searchResult;
+//	}
 }

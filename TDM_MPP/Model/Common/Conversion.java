@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Order.Order;
+import Order.OrderDetail;
 import User.Party;
 import Vehicle.Transport;
 
@@ -75,8 +76,8 @@ public class Conversion implements SQLConstants {
 	 * @param rs
 	 * @return
 	 */
-	public static void toOrderTransports(ResultSet rs, List<Order> orders) {
-		if (rs == null) return;
+	public static Order toOrderTransports(ResultSet rs, List<Order> orders) {
+		if (rs == null) return null;
 		
 		Transport transport = new Transport();
 		Order ord = null;
@@ -99,7 +100,7 @@ public class Conversion implements SQLConstants {
 				ord.setTransports(transports);
 			}
 			transport.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
-			transport.setCreatedDate(rs.getDate(DATE_CREATED_TRANSPORT_COLUMN).toLocalDate());
+			//transport.setCreatedDate(rs.getDate(DATE_CREATED_TRANSPORT_COLUMN).toLocalDate());
 			transport.setDescription(rs.getString(DESCRIPTION_TRANSPORT_COLUMN));
 			transport.setFuelType(rs.getString(FUEL_TYPE_TRANSPORT_COLUMN));
 			transport.setId(rs.getInt(TRANSPORT_ID_ORDER_COLUMN));
@@ -119,6 +120,7 @@ public class Conversion implements SQLConstants {
 			
 			e.printStackTrace();
 		}		
-		
+		return ord;
 	}
+	
 }
