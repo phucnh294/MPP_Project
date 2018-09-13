@@ -7,15 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import GUI.Customer.Customer;
 import Interface.IOrder;
-import Interface.IParty;
 import Order.Order;
-import Order.OrderDetail;
 import Order.OrderTransport;
 import Service.OrderFactory;
-import Service.PartyFactory;
-import User.Party;
 import Utilities.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,10 +18,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class OrderController implements Initializable{
@@ -114,7 +109,7 @@ public class OrderController implements Initializable{
 		oTrans.setTransportID(123);
 		orderTransport.add(oTrans);
 		try {
-			iOrder.insertOrder(order, orderTransport);
+			iOrder.insertOrder(order);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

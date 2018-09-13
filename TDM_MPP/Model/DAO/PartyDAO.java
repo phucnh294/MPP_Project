@@ -102,6 +102,20 @@ public class PartyDAO implements SQLConstants, IParty{
 	 * @throws SQLException
 	 */
 	public List<Party> search(String id, String name, String email, String phone) throws SQLException {
+		return search(id, name, email, phone, false);
+	}
+	
+	/**
+	 * search party with specific condition
+	 * @param id
+	 * @param name
+	 * @param email
+	 * @param phone
+	 * @param searchDealerAdmin
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<Party> search(String id, String name, String email, String phone, boolean searchDealerAdmin) {
 		List<Party> searchResult = new ArrayList<>();
 		PreparedStatement stm = null;
 		try {
@@ -119,6 +133,9 @@ public class PartyDAO implements SQLConstants, IParty{
 			if(phone != null && phone.trim().length() != 0) {
 				sql.append(SEARCH_PARTY_PHONE_CONDITION_SQL.replaceAll("[?]", phone));
 			}
+			if(searchDealerAdmin) {
+				sql.append(SEARCH_PARTY_TYPE_CONDITION_SQL);
+			}
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(sql.toString());
 			ResultSet rs = stm.executeQuery();
 			while (rs.next()) {
@@ -127,7 +144,12 @@ public class PartyDAO implements SQLConstants, IParty{
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			stm.close();
+			try {
+				stm.close();
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
 		}		
 		return searchResult;
 	}

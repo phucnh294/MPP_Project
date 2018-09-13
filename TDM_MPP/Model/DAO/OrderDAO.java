@@ -7,6 +7,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,10 +15,10 @@ import Common.Conversion;
 import Common.SQLConstants;
 import Interface.IOrder;
 import Order.Order;
-import Order.OrderDetail;
 import Order.OrderTransport;
 import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
+import Vehicle.Transport;
 
 /**
  * @author ptkie
@@ -31,25 +32,30 @@ public class OrderDAO implements SQLConstants,IOrder {
 	 * @param party
 	 * @throws SQLException
 	 */
-	public void insertOrder(Order order, List<OrderTransport> orderTransports) throws SQLException {
+	public void insertOrder(Order order) throws SQLException {
 		PreparedStatement orderStm = null;
 		PreparedStatement orderTransportsStm = null;
 		boolean currentAutoCommit = DatabaseConnection.getInstance().getConnection().getAutoCommit();
 		try {
 
 			DatabaseConnection.getInstance().getConnection().setAutoCommit(false);
-			orderStm = DatabaseConnection.getInstance().getConnection().prepareStatement(INSERT_ORDER_SQL);
+			orderStm = DatabaseConnection.getInstance().getConnection().prepareStatement(INSERT_ORDER_SQL, Statement.RETURN_GENERATED_KEYS);
 			orderStm.setDouble(1, order.getAmount());
 			orderStm.setDate(2, Date.valueOf(order.getOrderDate()));
 			orderStm.setInt(3, order.getCustomerID());
 			orderStm.setInt(4, order.getDealerID());
 			orderStm.execute();
-
+			ResultSet rs = orderStm.getGeneratedKeys();
+			int orderId = -1;
+			if(rs.next()) {
+				orderId = rs.getInt(1);
+				
+			}
 			orderTransportsStm = DatabaseConnection.getInstance().getConnection()
 					.prepareStatement(INSERT_ORDER_TRANSPORT_SQL);
-			for (OrderTransport ot : orderTransports) {
-				orderTransportsStm.setInt(1, order.getId());
-				orderTransportsStm.setInt(2, ot.getTransportID());
+			for (Transport ot : order.getTransports()) {
+				orderTransportsStm.setInt(1, orderId);
+				orderTransportsStm.setInt(2, ot.getId());
 				orderTransportsStm.setDouble(3, ot.getPrice());
 				orderTransportsStm.addBatch();
 			}
