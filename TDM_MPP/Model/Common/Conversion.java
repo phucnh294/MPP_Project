@@ -20,7 +20,7 @@ public class Conversion implements SQLConstants {
 			party.setName(rs.getString(NAME_PARTY_COLUMN));
 			party.setPhone(rs.getString(PHONE_PARTY_COLUMN));
 			party.setEmail(rs.getString(EMAIL_PARTY_COLUMN));
-			party.setBirthDate(rs.getDate(BIRTHDATE_PARTY_COLUMN).toLocalDate());
+//			party.setBirthDate(rs.getDate(BIRTHDATE_PARTY_COLUMN).toLocalDate());
 			party.setPassword(rs.getString(PASSWORD_PARTY_COLUMN));
 			party.setType(rs.getString(TYPE_PARTY_COLUMN));
 			party.setHobbies(rs.getString(HOBBIES_PARTY_COLUMN));

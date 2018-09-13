@@ -42,10 +42,10 @@ public class OrderDAOTest {
 		trans2.setPrice(30000);
 		transports.add(trans2);
 		transports.add(trans1);		
-//		
-//		ordDAO.insertOrder(ord, transports);
 		
-		ordDAO.deleteOrder(ord);
+		ordDAO.insertOrder(ord, transports);
+		
+//		ordDAO.deleteOrder(ord);
 		
 		
 		
