@@ -141,7 +141,7 @@ public class CustomerController implements Initializable{
 		Message(AlertType.INFORMATION, "Update Success","Your Information was upated");		
 	}	
 	
-	private void Message(AlertType type,String tilte, String message) {
+	public void Message(AlertType type,String tilte, String message) {
 		Alert alert = new Alert(type);
 		alert.setTitle(tilte);
 		alert.setContentText(message);

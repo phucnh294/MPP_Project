@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" 
-		xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.order.OrderController">
+<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.order.OrderController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
    </columnConstraints>
@@ -59,7 +58,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="createOrder" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Create Order" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="createOrderBtn" mnemonicParsing="false" onAction="#onCreateOrder_Click" prefHeight="27.0" prefWidth="130.0" text="Create Order" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <GridPane prefWidth="80.0" GridPane.rowIndex="2">
@@ -82,7 +81,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="filterBTN" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Button fx:id="filterBTN" mnemonicParsing="false" onAction="#onSearchOrder_Click" prefHeight="27.0" prefWidth="130.0" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="3">
@@ -105,7 +104,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="135.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onClearOrder_Click" prefHeight="27.0" prefWidth="135.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <TableView fx:id="CusTableList" maxHeight="286.0" minHeight="200.0" prefHeight="286.0" prefWidth="707.0" GridPane.rowIndex="4">
@@ -141,8 +140,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Remove" GridPane.halignment="CENTER" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRemoveOrder_Click" prefWidth="100.0" text="Remove" GridPane.halignment="CENTER" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEditOrder_Click" prefWidth="100.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
    </children>
