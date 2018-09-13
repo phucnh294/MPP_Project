@@ -2,6 +2,7 @@ package Utilities;
 
 import java.util.regex.Pattern;
 
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class Validation {
@@ -38,5 +39,16 @@ public class Validation {
 			return false;
 		}
 		return true;
+	}
+	
+	public static boolean verifyPassword(PasswordField passfield, PasswordField verifyPassField) {
+		if(passfield.getText().equals(verifyPassField.getText())) {
+			passfield.getStyleClass().remove("customInput");
+			verifyPassField.getStyleClass().remove("customInput");
+			return true;
+		}
+		passfield.getStyleClass().add("customInput");
+		verifyPassField.getStyleClass().add("customInput");
+		return false;
 	}
 }

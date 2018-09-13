@@ -12,12 +12,14 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.PasswordField?>
 
-<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User.UserController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
@@ -38,6 +40,7 @@
          <children>
             <Label minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Email" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
             <TextField fx:id="email" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Email" GridPane.columnIndex="1" />
+         	<Button fx:id="createUserBtn" mnemonicParsing="false" onAction="#onCreateCustomer_Click" prefHeight="27.0" prefWidth="130.0" text="Create User" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <GridPane prefWidth="80.0" GridPane.rowIndex="1">
@@ -60,7 +63,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="createUserBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Create User" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#onSearch_Click" prefHeight="27.0" prefWidth="130.0" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <GridPane prefHeight="44.0" prefWidth="729.0" GridPane.rowIndex="2">
@@ -78,15 +81,15 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField id="streetField" fx:id="password" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" GridPane.columnIndex="1">
+            <PasswordField id="streetField" fx:id="password" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
-            </TextField>
-            <Button fx:id="searchBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="130.0" text="Search" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            </PasswordField>
+            <Button fx:id="clearTrannsportBtn" mnemonicParsing="false" onAction="#onClearTransport_Click" prefHeight="27.0" prefWidth="135.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <GridPane prefHeight="44.0" prefWidth="702.0" GridPane.rowIndex="3">
+      <GridPane prefHeight="44.0" prefWidth="702.0" GridPane.rowIndex="4">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="96.8000213623047" prefWidth="120.19999084472656" />
@@ -103,15 +106,14 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <RadioButton fx:id="typeRadio" mnemonicParsing="false" text="CUSTOMER" GridPane.columnIndex="1">
+            <RadioButton fx:id="dealerRadio" mnemonicParsing="false" text="DEALER" GridPane.columnIndex="1">
                <toggleGroup>
                   <ToggleGroup fx:id="userType" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="typeRadio" mnemonicParsing="false" text="DEALER" toggleGroup="$userType" GridPane.columnIndex="2" />
-            <RadioButton fx:id="typeRadio" mnemonicParsing="false" text="ADMIN" toggleGroup="$userType" GridPane.columnIndex="3" />
+            <RadioButton fx:id="adminRadio" mnemonicParsing="false" text="ADMIN" toggleGroup="$userType" GridPane.columnIndex="2" />
          </children>
-      </GridPane>
-      <TableView fx:id="userTableList" maxHeight="286.0" minHeight="200.0" prefHeight="286.0" prefWidth="707.0" GridPane.rowIndex="4">
+      </GridPane>  
+      <TableView fx:id="userTableList" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="707.0" GridPane.rowIndex="5">
          <columns>
             <TableColumn fx:id="nameCol" maxWidth="371.9999449849129" prefWidth="264.7999938130379" text="Name">
                <cellValueFactory>
@@ -130,17 +132,39 @@
             </TableColumn>
          </columns>
       </TableView>
-      <GridPane GridPane.rowIndex="5">
+      <GridPane GridPane.rowIndex="6">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="removeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Remove" GridPane.halignment="CENTER" />
-            <Button fx:id="editBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button fx:id="removeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRemove_Click" prefWidth="100.0" text="Remove" GridPane.halignment="CENTER" />
+            <Button fx:id="editBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEdit_Click" prefWidth="100.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <GridPane GridPane.rowIndex="3">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />          
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label maxWidth="108.0" minWidth="70.0" prefHeight="18.0" prefWidth="108.0" text="Verify Password" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </Label>
+            <PasswordField id="streetField" fx:id="verifyPwd" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Password" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin>
+            </PasswordField>
          </children>
       </GridPane>
    </children>

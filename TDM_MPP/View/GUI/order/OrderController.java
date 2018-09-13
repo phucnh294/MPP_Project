@@ -7,16 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import GUI.Customer.Customer;
 import GUI.sign_in.SignIn;
 import Interface.IOrder;
-import Interface.IParty;
 import Order.Order;
-import Order.OrderDetail;
 import Order.OrderTransport;
 import Service.OrderFactory;
-import Service.PartyFactory;
-import User.Party;
 import Utilities.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,10 +22,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -143,6 +138,32 @@ public class OrderController implements Initializable{
 //			Message(AlertType.ERROR, "Create Fail","There are some issues with system, please contact administator for support!");			
 //		}
 //		Message(AlertType.INFORMATION, "Create Success","Your Order was recorded");	
+		if(!Validation.isValidField(amount, customerId, dealerId)) {
+			return;
+		}
+		String id = this.Id.getText();
+		String amount= this.amount.getText();
+		String customerId= this.customerId.getText();
+		String dealerId = this.dealerId.getText();
+		Order order = new Order();
+		order.setAmount(Double.parseDouble(amount));
+		order.setCustomerID(Integer.parseInt(customerId));
+		order.setDealerID(Integer.parseInt(dealerId));
+		order.setOrderDate(LocalDate.now());
+		List<OrderTransport> orderTransport = new ArrayList<OrderTransport>();
+		OrderTransport oTrans = new OrderTransport();
+		oTrans.setOrderID(1);
+		oTrans.setPrice(10000);
+		oTrans.setTransportID(123);
+		orderTransport.add(oTrans);
+		try {
+			iOrder.insertOrder(order);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Message(AlertType.ERROR, "Create Fail","There are some issues with system, please contact administator for support!");			
+		}
+		Message(AlertType.INFORMATION, "Create Success","Your Order was recorded");	
 	}	
 	
 	@FXML protected void onSearchOrder_Click(ActionEvent event) {

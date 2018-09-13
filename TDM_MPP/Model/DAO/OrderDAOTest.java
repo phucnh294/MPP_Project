@@ -33,17 +33,18 @@ public class OrderDAOTest {
 		ord.setCustomerID(2);
 		ord.setDealerID(2);
 		ord.setOrderDate(LocalDate.now());
-		List<OrderTransport> transports = new ArrayList<>();
-		OrderTransport trans1 = new OrderTransport();
-		trans1.setTransportID(1);
+		List<Transport> transports = new ArrayList<>();
+		Transport trans1 = new Transport();
+		trans1.setId(1);
 		trans1.setPrice(1000);
-		OrderTransport trans2 = new OrderTransport();
-		trans2.setTransportID(2);
+		Transport trans2 = new Transport();
+		trans2.setId(2);
 		trans2.setPrice(30000);
 		transports.add(trans2);
-		transports.add(trans1);		
+		transports.add(trans1);	
+		ord.setTransports(transports);
 		
-		ordDAO.insertOrder(ord, transports);
+		ordDAO.insertOrder(ord);
 		
 //		ordDAO.deleteOrder(ord);
 		

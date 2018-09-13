@@ -6,9 +6,10 @@ import java.util.List;
 import User.Party;
 
 public interface IParty {
-	public void insertParty(Party party) throws SQLException ;
-	public void updateParty(Party party)throws SQLException ;
-	public void deleteParty(Party party)throws SQLException ;
-	public List<Party> search(String id, String name, String email, String phone)throws SQLException ;
-	public Party login(String username, String password) throws SQLException;
+	 void insertParty(Party party) throws SQLException ;
+	 void updateParty(Party party)throws SQLException ;
+	 void deleteParty(Party party)throws SQLException ;
+	 List<Party> search(String id, String name, String email, String phone)throws SQLException ;
+	 Party login(String username, String password) throws SQLException;
+	List<Party> search(String id, String name, String email, String phone, boolean searchDealerAdmin) ;
 }
