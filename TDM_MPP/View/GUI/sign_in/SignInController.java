@@ -23,8 +23,7 @@ public class SignInController {
         String username =usernameField.getText();
         String password=  passwordField.getText();
         if(username.equals("admin") && password.equals("admin")) {
-        	Stage stage =Main.getPrimaryStage();
-        	Dashboard dash = new Dashboard(stage);       
+        	Stage stage =Main.getPrimaryStage();   
         	Main.getLoginStage().close();
 			Main.getPrimaryStage().show();
         }
