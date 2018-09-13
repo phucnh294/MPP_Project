@@ -114,7 +114,7 @@ public class CreateOrderController implements Initializable{
 		if(!Validation.isValidField(customerId, dealerId)) {
 			return;
 		}
-		double total;
+		double total=0;
 		Order order = new Order();
 		for(Transport trans: selectedData) {
 			total+= trans.getPrice();
@@ -123,6 +123,7 @@ public class CreateOrderController implements Initializable{
 		order.setDealerID(Integer.parseInt(this.dealerId.getText()));
 		order.setAmount(total);
 		order.setOrderDate(LocalDate.now());
+		order.setTransports(selectedData);
 		try {
 			iOrder.insertOrder(order);
 		} catch (SQLException e) {
