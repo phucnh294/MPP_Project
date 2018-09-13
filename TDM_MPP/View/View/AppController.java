@@ -4,6 +4,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
+import GUI.order.CreateOrder;
 import GUI.order.OrderView;
 import GUI.Customer.Customer;
 import GUI.Transport.AddTransport;
@@ -73,6 +74,10 @@ public class AppController implements Initializable {
 							UserView userView = new UserView(null);
 							content.setText(name);
 							content.setContent(userView.getTilePane());
+						}else if ("Create Order".equals(name)) {
+							CreateOrder createOrder = new CreateOrder(null);
+							content.setText(name);
+							content.setContent(createOrder.getTilePane());
 						}
 					}
 				}
@@ -90,9 +95,9 @@ public class AppController implements Initializable {
 //		car.getChildren().add(listCar);
 		root.getChildren().add(car);
 
-		TreeItem<String> contract = new TreeItem<>("Order", getImageView("contract.png"));
-//		TreeItem<String> rentCar = new TreeItem<>("Create Order", getImageView("rentCar.png"));
-//		contract.getChildren().add(rentCar);
+		TreeItem<String> contract = new TreeItem<>("Order");
+		TreeItem<String> rentCar = new TreeItem<>("Create Order");
+		contract.getChildren().add(rentCar);
 //		TreeItem<String> returnCar = new TreeItem<>("List Order", getImageView("returnCar.jpeg"));
 //		contract.getChildren().add(returnCar);
 		root.getChildren().add(contract);

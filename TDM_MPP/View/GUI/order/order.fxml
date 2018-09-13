@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.order.OrderController">
+<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.order.OrderController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
    </columnConstraints>
@@ -109,26 +110,29 @@
       </GridPane>
       <TableView fx:id="orderTableList" maxHeight="286.0" minHeight="200.0" prefHeight="286.0" prefWidth="707.0" GridPane.rowIndex="4">
          <columns>
-            <TableColumn fx:id="idCol" maxWidth="200.0" prefWidth="150.0" text="ID">
+            <TableColumn fx:id="idCol" maxWidth="200.0" prefWidth="80.79995566606522" text="ID">
                <cellValueFactory>
                   <PropertyValueFactory property="firstName" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="amountCol" maxWidth="200.0" prefWidth="150.0" text="Amount">
+            <TableColumn fx:id="amountCol" maxWidth="220.00003814697266" prefWidth="125.59996795654297" text="Amount">
                <cellValueFactory>
                   <PropertyValueFactory property="streetLine1" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="customerIdCol" maxWidth="200.0" prefWidth="150.0" text="Customer ID">
+            <TableColumn fx:id="customerCol" maxWidth="245.6000518798828" prefWidth="133.6000518798828" text="Customer">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="dealerIdCol" maxWidth="200.0" prefWidth="150.0" text="Dealer ID">
+            <TableColumn fx:id="dealerCol" maxWidth="263.2000427246094" prefWidth="116.79998779296875" text="Dealer">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>
             </TableColumn>
+            <TableColumn fx:id="transportCol" prefWidth="75.0" text="Transport" />
+            <TableColumn fx:id="brandCol" prefWidth="75.0" text="Brand" />
+            <TableColumn fx:id="priceCol" prefWidth="75.0" text="Price" />
          </columns>
       </TableView>
       <GridPane GridPane.rowIndex="5">

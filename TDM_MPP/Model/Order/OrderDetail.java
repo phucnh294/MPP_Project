@@ -1,33 +1,38 @@
 package Order;
 
+import java.time.LocalDate;
+
 public class OrderDetail {
-	public String ID;
-	public String Party_Name;
-	public String AMOUNT;
+	private int Id;
+	private double amount;
+	//private String AMOUNT;
 	
-	public String CUSTOMER_ID;
-	public String DEALER_ID;
-	public String ORDER_DATE;
-	public String PARTY_NAME;
-	public String PHONE;
-	public String EMAIL; 
-	public String BIRTHDATE; 
-	public String PASSWORD; 
-	public String TYPE; 
-	public String HOBBIES; 
-	public String MARRIAGE_STATUS; 
-	public String TRANSPORT_ID; 
-	public String PRICE; 
-	public String TRANSPORT_NAME; 
-	public String BRAND; 
-	public String DATE_CREATED; 
-	public String MODEL; 
-	public String MANUFACTURER; 
-	public String DESCRIPTION; 
-	public String SEAT_CAPACITY; 
-	public String FUEL_TYPE; 
-	public String MILEAGE; 
-	public String TRANMISSION_TYPE; 
-	public String NUMBER_OF_ENGINE; 
-	public String TRANSPORT_TYPE;	
+	private int customerID;
+	private int dealerID;
+	private LocalDate orderDate;
+	
+	
+	private String brand;
+	private String description;
+	private String fuelType; 
+	private String BIRTHDATE; 
+	private String PASSWORD; 
+	private String TYPE; 
+	private String HOBBIES; 
+	private String MARRIAGE_STATUS; 
+	private String TRANSPORT_ID; 
+	private String PRICE; 
+	private String TRANSPORT_NAME; 
+	private String BRAND; 
+	private String DATE_CREATED; 
+	private String MODEL; 
+	private String MANUFACTURER; 
+	private String DESCRIPTION; 
+	private String SEAT_CAPACITY; 
+	private String FUEL_TYPE; 
+	private String MILEAGE; 
+	private String TRANMISSION_TYPE; 
+	private String NUMBER_OF_ENGINE; 
+	private String TRANSPORT_TYPE;
+	
 }

@@ -18,7 +18,12 @@ public class Order {
 	private double amount;
 	private LocalDate orderDate;
 	private int customerID;
+	
+	private String customerName;
+		
 	private int dealerID;
+	private String dealerName;
+	
 	private List<Transport> transports;	
 	
 	public List<Transport> getTransports() {
@@ -56,6 +61,18 @@ public class Order {
 	}
 	public void setDealerID(int dealerID) {
 		this.dealerID = dealerID;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public String getDealerName() {
+		return dealerName;
+	}
+	public void setDealerName(String dealerName) {
+		this.dealerName = dealerName;
 	}
 	
 	

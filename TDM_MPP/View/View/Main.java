@@ -20,7 +20,7 @@ public class Main extends Application {
 
 			primaryStage.setTitle("Transport Dealership Management");
 			primaryStage.setScene(scene);
-			primaryStage.setResizable(false);
+			primaryStage.setResizable(true);
 			SignIn login = new SignIn(primaryStage);
 			login.setResizable(false);
 			loginStage = login;
