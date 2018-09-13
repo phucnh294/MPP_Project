@@ -6,14 +6,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:controller="GUI.sign_in.SignInController"
-	xmlns:fx="http://javafx.com/fxml" styleClass="root">
+<VBox fx:controller="GUI.sign_in.SignInController" prefHeight="300" prefWidth="600" maxHeight="1.5" maxWidth="1.5"
+	xmlns:fx="http://javafx.com/fxml" styleClass="root" alignment="center">
 
 	<padding>
-		<Insets top="25" right="100" bottom="25" left="100" />
+		<Insets top="25" right="50" bottom="25" left="50" />
 	</padding>
 
-	<Text id="welcome-text" text="Transport Dealership Management" />
+	<Text id="welcome-text" text="Transport Dealership"/>
+	<Text id="welcome-text" text="Management"/>
+	
+	<VBox alignment="center">
+		<Text  />
+	</VBox>
 
 	<Label text="User Name:" />
 
@@ -30,11 +35,11 @@
 			styleClass="positiveButton" />
 	</VBox>
 
-	<VBox alignment="center" spacing="10" styleClass="hbox">
+	<!-- <VBox alignment="center" spacing="10" styleClass="hbox">
 		<Label text="Not Register ?" />
 		<Button text="Register" onAction="#handleRegister"
 			styleClass="negativeButton" />
-	</VBox>
+	</VBox> -->
 
 	<stylesheets>
 		<URL value="@application.css" />

@@ -23,7 +23,7 @@ public class SignIn extends Stage {
     private void loadResource() {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("sign_in.fxml"));
-			Scene scene = new Scene(root);
+			Scene scene = new Scene(root, 400, 300);
 			this.setTitle("Login");
 			this.setScene(scene);
 		} catch (IOException e) {
