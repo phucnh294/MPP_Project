@@ -89,17 +89,17 @@
       </GridPane>
       <TableView fx:id="partyTableList" prefHeight="288.0" prefWidth="708.0" GridPane.rowIndex="4">
          <columns>
-            <TableColumn prefWidth="220.7999785542488" text="Name">
+            <TableColumn fx:id="nameCol" prefWidth="220.7999785542488" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="firstName" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="216.00001525878906" text="Phone">
+            <TableColumn fx:id="phoneCol" prefWidth="216.00001525878906" text="Phone">
                <cellValueFactory>
                   <PropertyValueFactory property="streetLine1" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="233.60006713867188" text="Email">
+            <TableColumn fx:id="emailCol" prefWidth="233.60006713867188" text="Email">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>
