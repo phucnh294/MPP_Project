@@ -56,39 +56,15 @@ public class AppController implements Initializable {
 							Customer customer = new Customer(null);
 							content.setText(name);
 							content.setContent(customer.getTilePane());
-						} else if ("Make a Deal".equals(name)) {
-//							Contract contract = new Contract();
-//							content.setText(name);
-//							content.setContent(contract.getGrid());
-						} else if ("Add a new car".equals(name)) {
+						}  else if ("Add a new car".equals(name)) {
 							AddTransport addCar = new AddTransport(null);
 							content.setText(name);
 							content.setContent(addCar.getTilePane());
-						} else if ("List cars".equals(name)) {
-//							CarList carList = new CarList(null);
-//							content.setText(name);
-//							content.setContent(carList.getTilePane());
-						} else if ("Add a new customer".equals(name)) {
-							// AddCustomer addCustomer = new AddCustomer(null);
-							// content.setText(name);
-							// content.setContent(addCustomer.getTilePane());
-						} else if ("Create User".equals(name)) {
-//							UserCreate userCreate = new UserCreate(null);
-//							content.setText(name);
-//							content.setContent(userCreate.getTilePane());
-						} else if ("List Contract".equals(name)) {
-//							ListContract listContract = new ListContract();
-//							content.setText(name);
-//							content.setContent(listContract.getGrid());
-						} else if ("List User".equals(name)) {
-//							UserList userList = new UserList(null);
-//							content.setText(name);
-//							content.setContent(userList.getTilePane());
 						} else if ("Order".equals(name)) {
 							Order contract = new Order(null);
 							content.setText(name);
 							content.setContent(contract.getTilePane());
-						} else if ("Car".equals(name)) {
+						} else if ("Transport".equals(name)) {
 							AddTransport contract = new AddTransport(null);
 							content.setText(name);
 							content.setContent(contract.getTilePane());
@@ -102,7 +78,7 @@ public class AppController implements Initializable {
 		TreeItem<String> customer = new TreeItem<>("Customer", getImageView("customer.png"));
 		root.getChildren().add(customer);
 		
-		TreeItem<String> car = new TreeItem<>("Car", getImageView("Car.png"));
+		TreeItem<String> car = new TreeItem<>("Transport", getImageView("Car.png"));
 //		TreeItem<String> addNewCar = new TreeItem<>("Add a new car", getImageView("add.png"));
 //		car.getChildren().add(addNewCar);
 //		TreeItem<String> listCar = new TreeItem<>("List cars", getImageView("list.png"));
