@@ -12,6 +12,7 @@ import java.util.List;
 
 import Common.Conversion;
 import Common.SQLConstants;
+import Interface.IOrder;
 import Order.Order;
 import Order.OrderTransport;
 import Utilities.DBUtility;
@@ -21,7 +22,7 @@ import Utilities.DatabaseConnection;
  * @author ptkie
  *
  */
-public class OrderDAO implements SQLConstants {
+public class OrderDAO implements SQLConstants,IOrder {
 
 	/**
 	 * insert a new party

@@ -7,11 +7,11 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-public class Order {
+public class OrderView {
 	private Pane primaryPane;
 	private GridPane tilePane;
 
-	public Order(Pane primaryStage) {
+	public OrderView(Pane primaryStage) {
 		this.primaryPane = primaryStage;
 		loadResource();
 	}

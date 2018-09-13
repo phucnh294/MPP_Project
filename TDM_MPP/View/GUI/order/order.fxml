@@ -76,7 +76,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField id="streetField" fx:id="customer_id" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Customer Id" GridPane.columnIndex="1">
+            <TextField id="streetField" fx:id="customerId" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Customer Id" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
@@ -99,7 +99,7 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField id="cityField" fx:id="dealer_id" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="DealerId" GridPane.columnIndex="1">
+            <TextField id="cityField" fx:id="dealerId" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="DealerId" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
@@ -107,24 +107,24 @@
             <Button mnemonicParsing="false" onAction="#onClearOrder_Click" prefHeight="27.0" prefWidth="135.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <TableView fx:id="CusTableList" maxHeight="286.0" minHeight="200.0" prefHeight="286.0" prefWidth="707.0" GridPane.rowIndex="4">
+      <TableView fx:id="orderTableList" maxHeight="286.0" minHeight="200.0" prefHeight="286.0" prefWidth="707.0" GridPane.rowIndex="4">
          <columns>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="ID">
+            <TableColumn fx:id="idCol" maxWidth="200.0" prefWidth="150.0" text="ID">
                <cellValueFactory>
                   <PropertyValueFactory property="firstName" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="Amount">
+            <TableColumn fx:id="amountCol" maxWidth="200.0" prefWidth="150.0" text="Amount">
                <cellValueFactory>
                   <PropertyValueFactory property="streetLine1" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="Customer ID">
+            <TableColumn fx:id="customerIdCol" maxWidth="200.0" prefWidth="150.0" text="Customer ID">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="Dealer ID">
+            <TableColumn fx:id="dealerIdCol" maxWidth="200.0" prefWidth="150.0" text="Dealer ID">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>

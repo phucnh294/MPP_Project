@@ -4,7 +4,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
-import GUI.order.Order;
+import GUI.order.OrderView;
 import GUI.Customer.Customer;
 import GUI.Transport.AddTransport;
 import Vehicle.Transport;
@@ -61,7 +61,7 @@ public class AppController implements Initializable {
 							content.setText(name);
 							content.setContent(addCar.getTilePane());
 						} else if ("Order".equals(name)) {
-							Order contract = new Order(null);
+							OrderView contract = new OrderView(null);
 							content.setText(name);
 							content.setContent(contract.getTilePane());
 						} else if ("Transport".equals(name)) {
