@@ -147,9 +147,8 @@ public class PartyDAO implements SQLConstants, IParty{
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(SIGNIN_SQL);
 			stm.setString(1, username);
 			stm.setString(2, password);
-			rs = stm.executeQuery(SIGNIN_SQL);
-			if (rs.next()) {
-				
+			rs = stm.executeQuery();
+			if (rs.next()) {				
 				return Conversion.toParty(rs);
 			}
 		} catch (SQLException e) {

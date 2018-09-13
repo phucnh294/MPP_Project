@@ -47,7 +47,7 @@ public interface SQLConstants {
 	String ID_ORDER_COLUMN = "ID";
 	
 	//SIGN IN
-	String SIGNIN_SQL = "Select * From Party Where email = ? and password = ?";
+	String SIGNIN_SQL = "Select * From Party WHERE EMAIL = ? AND PASSWORD = ?";
 
 	// PARTY
 	String INSERT_PARTY_SQL = "INSERT INTO PARTY (NAME, PHONE, EMAIL, PASSWORD, TYPE, HOBBIES, MARRIAGE_STATUS) VALUES(?,?,?,?,?,?,?)";

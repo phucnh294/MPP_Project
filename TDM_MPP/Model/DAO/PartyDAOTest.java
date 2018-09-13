@@ -71,8 +71,11 @@ public class PartyDAOTest {
 		
 //		partyDAO.deleteParty(party);
 		
-		List<Party> parties = partyDAO.search(null, null, "gmail", "12");
-		System.out.println(parties);
+//		List<Party> parties = partyDAO.search(null, null, "gmail", "12");
+//		System.out.println(parties);
+		
+		Party partydd = partyDAO.login("kien.ptx@gmail.com", "123456");
+		System.out.println(partydd);
 		
 
 	}
