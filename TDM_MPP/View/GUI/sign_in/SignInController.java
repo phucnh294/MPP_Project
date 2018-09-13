@@ -1,22 +1,19 @@
 package GUI.sign_in;
  
-import java.io.IOException;
+
 import java.sql.SQLException;
 
-import GUI.dashboard.Dashboard;
 import Interface.IParty;
 import Service.PartyFactory;
 import User.Party;
+import Utilities.Validation;
 import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 
  
@@ -31,6 +28,13 @@ public class SignInController {
         String username =usernameField.getText();
         String password=  passwordField.getText();
         
+        actiontarget.setText("");
+        
+        if(!Validation.isValidField(usernameField, passwordField)) {
+        	actiontarget.setText("Fields Required");
+        	return;
+        }
+        
         try {
         	party= iparty.login(username,password);
 		} catch (SQLException e) {
@@ -38,7 +42,6 @@ public class SignInController {
 			e.printStackTrace();			
 		}
         if(party !=null ||(username.equals("admin") && password.equals("admin"))) {
-        	Stage stage =Main.getPrimaryStage();   
         	Main.getLoginStage().close();
 			Main.getPrimaryStage().show();
         }else {

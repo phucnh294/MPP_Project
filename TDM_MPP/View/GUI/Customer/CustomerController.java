@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import Interface.IParty;
 import Service.PartyFactory;
 import User.Party;
+import Utilities.Validation;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -84,6 +85,14 @@ public class CustomerController implements Initializable{
 	}
 	
 	@FXML protected void onCreateCustomer_Click(ActionEvent event) {
+		if(!Validation.isValidField(name, phone, email)) {
+			return;
+		}
+		
+		if(!Validation.isValidEmail(email)) {
+			return;
+		}
+		
 		String id = this.Id.getText();
 		String name= this.name.getText();
 		String phone= this.phone.getText();
@@ -126,6 +135,13 @@ public class CustomerController implements Initializable{
 	}
 	
 	@FXML protected void onEdit_Click(ActionEvent event) {
+		if(!Validation.isValidField(name, phone, email)) {
+			return;
+		}
+		
+		if(!Validation.isValidEmail(email)) {
+			return;
+		}
 		Party party = partyTableList.getSelectionModel().getSelectedItem();
 		party.setCustomerId(privateId);
 		party.setName(this.name.getText()); 

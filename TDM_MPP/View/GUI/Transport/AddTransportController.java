@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import Interface.ITransport;
 import Service.TransportFactory;
+import Utilities.Validation;
 import Vehicle.Transport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -92,11 +93,11 @@ public class AddTransportController implements Initializable {
 
 	@FXML
 	protected void onCreateTransport_Click(ActionEvent event) {
-		if (name.getText() == null || name.getText().length() == 0) {
-			showMessage(AlertType.ERROR, "Transport", "Name is required");
-			name.requestFocus();
+		if(!Validation.isValidField(name, brand, model, description, price)) {
+			//showMessage(AlertType.ERROR, "Error", "All Fields is required");
 			return;
 		}
+		
 		Transport tran = new Transport();
 		tran.setName(name.getText());
 		tran.setBrand(brand.getText());
@@ -165,7 +166,10 @@ public class AddTransportController implements Initializable {
 
 	@FXML
 	protected void onEditTransport_Click(ActionEvent event) {
-
+		if(!Validation.isValidField(name, brand, model, description, price)) {
+			//showMessage(AlertType.ERROR, "Error", "All Fields is required");
+			return;
+		}
 		Transport tran = CusTableList.getSelectionModel().getSelectedItem();
 		tran.setName(name.getText());
 		tran.setBrand(brand.getText());

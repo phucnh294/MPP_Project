@@ -37,7 +37,7 @@
 	</VBox>
 
 	<stylesheets>
-		<URL value="@Login.css" />
+		<URL value="@application.css" />
 	</stylesheets>
 
 </VBox>
