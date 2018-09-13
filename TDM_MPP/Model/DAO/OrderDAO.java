@@ -46,7 +46,7 @@ public class OrderDAO implements SQLConstants {
 			orderTransportsStm = DatabaseConnection.getInstance().getConnection()
 					.prepareStatement(INSERT_ORDER_TRANSPORT_SQL);
 			for (OrderTransport ot : orderTransports) {
-				orderTransportsStm.setInt(1, ot.getOrderID());
+				orderTransportsStm.setInt(1, order.getId());
 				orderTransportsStm.setInt(2, ot.getTransportID());
 				orderTransportsStm.setDouble(3, ot.getPrice());
 				orderTransportsStm.addBatch();
