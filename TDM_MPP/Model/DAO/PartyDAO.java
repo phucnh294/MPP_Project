@@ -106,8 +106,7 @@ public class PartyDAO implements SQLConstants, IParty{
 		PreparedStatement stm = null;
 		try {
 			StringBuffer sql = new StringBuffer(SEARCH_PARTY_SQL);
-			if(id != null) {
-				
+			if(id != null) {				
 				sql.append(SEARCH_PARTY_ID_CONDITION_SQL.replaceAll("[?]", id));
 			}
 			if(name != null) {
@@ -128,8 +127,7 @@ public class PartyDAO implements SQLConstants, IParty{
 			e.printStackTrace();
 		} finally {
 			stm.close();
-		}
-		
+		}		
 		return searchResult;
 	}
 	

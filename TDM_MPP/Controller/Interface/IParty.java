@@ -10,4 +10,5 @@ public interface IParty {
 	public void updateParty(Party party)throws SQLException ;
 	public void deleteParty(Party party)throws SQLException ;
 	public List<Party> search(String id, String name, String email, String phone)throws SQLException ;
+	public Party login(String username, String password) throws SQLException;
 }
