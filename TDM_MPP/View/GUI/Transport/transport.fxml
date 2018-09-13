@@ -36,8 +36,9 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Id" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
-            <TextField fx:id="Id" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Id" GridPane.columnIndex="1" />
+            <Label minWidth="70.0" prefHeight="21.0" prefWidth="81.0" text="Id" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+            <Label fx:id="Id" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" GridPane.columnIndex="1" />
+<!--             <TextField fx:id="Id" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Id" GridPane.columnIndex="1" /> -->
          </children>
       </GridPane>
       <GridPane prefWidth="80.0" GridPane.rowIndex="1">
@@ -50,7 +51,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Name" GridPane.halignment="RIGHT">
+            <Label maxWidth="77.0" minWidth="70.0" prefHeight="20.0" prefWidth="77.0" text="Name" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
@@ -73,7 +74,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Price" GridPane.halignment="RIGHT">
+            <Label maxWidth="77.0" minWidth="70.0" prefHeight="18.0" prefWidth="77.0" text="Price" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
@@ -96,7 +97,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Brand" GridPane.halignment="RIGHT">
+            <Label maxWidth="77.0" minWidth="70.0" prefHeight="15.0" prefWidth="77.0" text="Brand" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
@@ -119,7 +120,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Model" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+            <Label maxWidth="82.0" minWidth="70.0" prefHeight="13.0" prefWidth="74.0" text="Model" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
             <TextField fx:id="model" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Model" GridPane.columnIndex="1" />
          </children>
       </GridPane>
@@ -133,28 +134,28 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Description" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+            <Label maxWidth="82.0" minWidth="70.0" prefHeight="22.0" prefWidth="82.0" text="Description" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
             <TextField fx:id="description" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Description" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <TableView fx:id="CusTableList" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="707.0" GridPane.rowIndex="6">
          <columns>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="Name">
+            <TableColumn fx:id="nameCol" maxWidth="200.0" prefWidth="150.0" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="firstName" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="Brand">
+            <TableColumn fx:id="brandCol" maxWidth="200.0" prefWidth="150.0" text="Brand">
                <cellValueFactory>
                   <PropertyValueFactory property="streetLine1" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="Price">
+            <TableColumn fx:id="priceCol" maxWidth="200.0" prefWidth="150.0" text="Price">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn maxWidth="200.0" prefWidth="150.0" text="Model">
+            <TableColumn fx:id="modelCol" maxWidth="200.0" prefWidth="150.0" text="Model">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>
