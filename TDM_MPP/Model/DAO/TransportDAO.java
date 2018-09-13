@@ -3,7 +3,6 @@
  */
 package DAO;
 
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +12,6 @@ import java.util.List;
 import Common.Conversion;
 import Common.SQLConstants;
 import Interface.ITransport;
-import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
 import Vehicle.Transport;
 
@@ -36,13 +34,13 @@ public class TransportDAO implements SQLConstants, ITransport {
 			stm.setString(1, transport.getName());
 			stm.setDouble(2, transport.getPrice());
 			stm.setString(3, transport.getBrand());
-			stm.setDate(4, Date.valueOf(transport.getCreatedDate()));
-			stm.setString(5, transport.getModel());
-			stm.setString(6, transport.getManufactor());
-			stm.setString(7, transport.getDescription());
-			stm.setInt(8, transport.getSeatCapacity());
-			stm.setString(9, transport.getFuelType());
-			stm.setDouble(10, transport.getMileage());
+			stm.setString(4, transport.getModel());
+			stm.setString(5, transport.getManufactor());
+			stm.setString(6, transport.getDescription());
+			stm.setInt(7, transport.getSeatCapacity());
+			stm.setString(8, transport.getFuelType());
+			stm.setDouble(9, transport.getMileage());
+			stm.setInt(10, transport.getTranmissionType());
 			stm.setInt(11, transport.getNumberOfEngine());
 			stm.setString(12, transport.getTransportType());
 			stm.execute();
@@ -66,13 +64,13 @@ public class TransportDAO implements SQLConstants, ITransport {
 			stm.setString(1, transport.getName());
 			stm.setDouble(2, transport.getPrice());
 			stm.setString(3, transport.getBrand());
-			stm.setDate(4, Date.valueOf(transport.getCreatedDate()));
-			stm.setString(5, transport.getModel());
-			stm.setString(6, transport.getManufactor());
-			stm.setString(7, transport.getDescription());
-			stm.setInt(8, transport.getSeatCapacity());
-			stm.setString(9, transport.getFuelType());
-			stm.setDouble(10, transport.getMileage());
+			stm.setString(4, transport.getModel());
+			stm.setString(5, transport.getManufactor());
+			stm.setString(6, transport.getDescription());
+			stm.setInt(7, transport.getSeatCapacity());
+			stm.setString(8, transport.getFuelType());
+			stm.setDouble(9, transport.getMileage());
+			stm.setInt(10, transport.getTranmissionType());
 			stm.setInt(11, transport.getNumberOfEngine());
 			stm.setInt(12, transport.getId());
 			stm.execute();
@@ -122,16 +120,16 @@ public class TransportDAO implements SQLConstants, ITransport {
 			StringBuffer sql = new StringBuffer(SEARCH_TRANSPORT_SQL);
 			if (fromPrice >= 0) {
 
-				sql.append(SEARCH_TRANSPORT_FROM_PRICE_CONDITION_SQL.replaceAll("?", String.valueOf(fromPrice)));
+				sql.append(SEARCH_TRANSPORT_FROM_PRICE_CONDITION_SQL.replaceAll("[?]", String.valueOf(fromPrice)));
 			}
 			if (toPrice > 0) {
-				sql.append(SEARCH_PARTY_NAME_CONDITION_SQL.replaceAll("?", String.valueOf(toPrice)));
+				sql.append(SEARCH_TRANSPORT_TO_PRICE_CONDITION_SQL.replaceAll("[?]", String.valueOf(toPrice)));
 			}
-			if (manufacturer != null) {
-				sql.append(SEARCH_PARTY_EMAIL_CONDITION_SQL.replaceAll("?", DBUtility.toDBString(manufacturer)));
+			if (manufacturer != null && manufacturer.trim().length() != 0) {
+				sql.append(SEARCH_TRANSPORT_MANUFACTURER_CONDITION_SQL.replaceAll("[?]", manufacturer));
 			}
 			if (seatCapacity > 0) {
-				sql.append(SEARCH_PARTY_PHONE_CONDITION_SQL.replaceAll("?", String.valueOf(seatCapacity)));
+				sql.append(SEARCH_TRANSPORT_SEAT_CAPACITY_CONDITION_SQL.replaceAll("[?]", String.valueOf(seatCapacity)));
 			}
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(sql.toString());
 			ResultSet rs = stm.executeQuery();
