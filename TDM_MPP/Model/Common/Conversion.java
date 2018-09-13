@@ -79,6 +79,7 @@ public class Conversion implements SQLConstants {
 		if (rs == null) return null;
 		
 		Transport transport = new Transport();
+		Transport selectTrans= new Transport();
 		Order ord = null;
 		try {
 			int orderId = rs.getInt(ID_ORDER_COLUMN);
@@ -98,6 +99,7 @@ public class Conversion implements SQLConstants {
 				List<Transport> transports = new ArrayList<>();
 				ord.setTransports(transports);
 			}
+			ord.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
 			transport.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
 			//transport.setCreatedDate(rs.getDate(DATE_CREATED_TRANSPORT_COLUMN).toLocalDate());
 			transport.setDescription(rs.getString(DESCRIPTION_TRANSPORT_COLUMN));
@@ -109,11 +111,17 @@ public class Conversion implements SQLConstants {
 			transport.setName(rs.getString(TRANSPORT_NAME_ORDER_COLUMN));
 			transport.setNumberOfEngine(rs.getInt(NUMBER_OF_ENGINE_TRANSPORT_COLUMN));
 			transport.setPrice(rs.getDouble(PRICE_TRANSPORT_COLUMN));
+			ord.setPrice(rs.getDouble(PRICE_TRANSPORT_COLUMN));
 			transport.setSeatCapacity(rs.getInt(SEAT_CAPACITY_TRANSPORT_COLUMN));
 			transport.setTranmissionType(rs.getInt(TRANMISSION_TYPE_TRANSPORT_COLUMN));
 			transport.setTransportType(rs.getString(TRANSPORT_TYPE_TRANSPORT_COLUMN));
+			ord.setTransportType(rs.getString(TRANSPORT_TYPE_TRANSPORT_COLUMN));
+			ord.setDealerName(rs.getString(DEALER_NAME_COLUMN));
+			ord.setCustomerName(rs.getString(PARTY_NAME_ORDER_COLUMN));
+			
 			ord.getTransports().add(transport);	
 			
+			selectTrans=transport;
 			
 		} catch (SQLException e) {
 			

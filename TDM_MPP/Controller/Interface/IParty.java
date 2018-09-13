@@ -12,4 +12,5 @@ public interface IParty {
 	 List<Party> search(String id, String name, String email, String phone)throws SQLException ;
 	 Party login(String username, String password) throws SQLException;
 	List<Party> search(String id, String name, String email, String phone, boolean searchDealerAdmin) ;
+	Party getParty(String id) throws SQLException;
 }

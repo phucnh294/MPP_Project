@@ -182,5 +182,26 @@ public class PartyDAO implements SQLConstants, IParty{
 		return null;
 	}	
 	
+	public Party getParty(String id) throws SQLException {
+
+		PreparedStatement stm = null;
+		ResultSet rs;
+		try {
+			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(GET_PARTY_SQL);
+			stm.setString(1, id);
+			
+			rs = stm.executeQuery();
+			if (rs.next()) {				
+				return Conversion.toParty(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			stm.close();
+		}
+
+		return null;
+	}	
+	
 
 }

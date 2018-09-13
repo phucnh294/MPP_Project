@@ -92,7 +92,13 @@ public class CreateOrderController implements Initializable{
 			selectedData.add(transport);
 			 ObservableList<Transport> selecTransports = FXCollections.observableArrayList(selectedData);
 				selectedTransportTableView.setItems(selecTransports);
-				selectedTransportTableView.refresh();
+				
+			data.remove(transport);
+			final ObservableList<Transport> transports = FXCollections.observableArrayList(data);
+			listTransportTableView.setItems(transports);
+			listTransportTableView.refresh();
+			selectedTransportTableView.refresh();
+			
 		}	
 		
 	}
@@ -105,7 +111,11 @@ public class CreateOrderController implements Initializable{
 			selectedData.remove(transport);
 			ObservableList<Transport> selecTransports = FXCollections.observableArrayList(selectedData);
 			selectedTransportTableView.setItems(selecTransports);
+			
+			data.add(transport);
+			final ObservableList<Transport> transports = FXCollections.observableArrayList(data);
 			selectedTransportTableView.refresh();
+			listTransportTableView.refresh();
 		}	
 		 
 	}

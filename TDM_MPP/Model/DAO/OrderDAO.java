@@ -146,11 +146,11 @@ public class OrderDAO implements SQLConstants,IOrder {
 				sql.append(SEARCH_ORDER_ID_CONDITION_SQL.replaceAll("[?]", String.valueOf(id)));
 			}
 			if (customerName != null && customerName.trim().length() != 0) {
-				sql.append(SEARCH_ORDER_PARTY_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(customerName)));
+				sql.append(SEARCH_ORDER_PARTY_NAME_CONDITION_SQL.replaceAll("[?]", (customerName)));
 			}
 			if (transportName != null && transportName.trim().length() != 0) {
 				sql.append(
-						SEARCH_ORDER_TRANSPORT_NAME_CONDITION_SQL.replaceAll("[?]", DBUtility.toDBString(transportName)));
+						SEARCH_ORDER_TRANSPORT_NAME_CONDITION_SQL.replaceAll("[?]", (transportName)));
 			}
 			sql.append(SEARCH_ORDER_SORT_SQL);
 

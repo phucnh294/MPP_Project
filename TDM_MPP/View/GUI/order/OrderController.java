@@ -79,8 +79,8 @@ public class OrderController implements Initializable{
 		
 		idCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
 		amountCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("amount"));
-		customerCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerID"));	
-		dealerCol.setCellValueFactory(new PropertyValueFactory<Order, String>("dealerID"));		
+		customerCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerName"));	
+		dealerCol.setCellValueFactory(new PropertyValueFactory<Order, String>("dealerName"));		
 		transportCol.setCellValueFactory(new PropertyValueFactory<Order, String>("transportType"));		
 		brandCol.setCellValueFactory(new PropertyValueFactory<Order, String>("brand"));		
 		priceCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("price"));		
@@ -105,39 +105,17 @@ public class OrderController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
+		for(Order o : data) {
+			
+		}
+		
+		
 		final ObservableList<Order> order = FXCollections.observableArrayList(data);
 		orderTableList.setItems(order);
 	}
 	
 	@FXML protected void onCreateOrder_Click(ActionEvent event) {
-//		if(!Validation.isValidField(amount, customerId, dealerId)) {
-//			return;
-//		}
-		
-		
-//		String id = this.Id.getText();
-//		String amount= this.amount.getText();
-//		String customerId= this.customerId.getText();
-//		String dealerId = this.dealerId.getText();
-//		Order order = new Order();
-//		order.setAmount(Double.parseDouble(amount));
-//		order.setCustomerID(Integer.parseInt(customerId));
-//		order.setDealerID(Integer.parseInt(dealerId));
-//		order.setOrderDate(LocalDate.now());
-//		List<OrderTransport> orderTransport = new ArrayList<OrderTransport>();
-//		OrderTransport oTrans = new OrderTransport();
-//		oTrans.setOrderID(1);
-//		oTrans.setPrice(10000);
-//		oTrans.setTransportID(4343);
-//		orderTransport.add(oTrans);
-//		try {
-//			iOrder.insertOrder(order, orderTransport);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			Message(AlertType.ERROR, "Create Fail","There are some issues with system, please contact administator for support!");			
-//		}
-//		Message(AlertType.INFORMATION, "Create Success","Your Order was recorded");	
+
 		if(!Validation.isValidField(amount, customerId, dealerId)) {
 			return;
 		}
@@ -171,7 +149,15 @@ public class OrderController implements Initializable{
 		String amount= this.amount.getText();
 		String customerId= this.customerId.getText();
 		String dealerId = this.dealerId.getText();
+		try {
+			data = iOrder.search(id.equals("")?0:Integer.parseInt(id), customerId,dealerId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 		
+		final ObservableList<Order> order = FXCollections.observableArrayList(data);
+		orderTableList.setItems(order);
 	}
 	@FXML protected void onClearOrder_Click(ActionEvent event) {
 		clearTextField();
