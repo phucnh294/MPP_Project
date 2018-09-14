@@ -8,7 +8,6 @@ import Data.Transport;
 import GUI.order.CreateOrder;
 import GUI.order.OrderView;
 
-import User.Party;
 import GUI.Customer.Customer;
 import GUI.Transport.AddTransport;
 import GUI.User.UserView;

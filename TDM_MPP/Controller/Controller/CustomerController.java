@@ -1,4 +1,4 @@
-package GUI.Customer;
+package Controller;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Data.Party;
+import GUI.Customer.Customer;
 import Interface.IParty;
 import Service.PartyFactory;
 import Utilities.Validation;

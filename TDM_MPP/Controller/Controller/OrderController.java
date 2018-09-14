@@ -1,4 +1,4 @@
-package GUI.order;
+package Controller;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -12,7 +12,6 @@ import GUI.sign_in.SignIn;
 import Interface.IOrder;
 import Service.OrderFactory;
 import Utilities.Validation;
-import Vehicle.Transport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -105,12 +104,6 @@ public class OrderController implements Initializable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		for(Order o : data) {
-			for(Transport trans : o.getTransports()) {
-				
-			}
-		}
-		
 		
 		final ObservableList<Order> order = FXCollections.observableArrayList(data);
 		orderTableList.setItems(order);
@@ -129,13 +122,7 @@ public class OrderController implements Initializable{
 		order.setAmount(Double.parseDouble(amount));
 		order.setCustomerID(Integer.parseInt(customerId));
 		order.setDealerID(Integer.parseInt(dealerId));
-		order.setOrderDate(LocalDate.now());
-		List<OrderTransport> orderTransport = new ArrayList<OrderTransport>();
-		OrderTransport oTrans = new OrderTransport();
-		oTrans.setOrderID(1);
-		oTrans.setPrice(10000);
-		oTrans.setTransportID(123);
-		orderTransport.add(oTrans);
+		order.setOrderDate(LocalDate.now());		
 		try {
 			iOrder.insertOrder(order);
 		} catch (SQLException e) {
