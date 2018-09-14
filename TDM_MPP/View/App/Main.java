@@ -16,7 +16,7 @@ public class Main extends Application {
 		Main.primaryStage = primaryStage;
 		try {
 			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("App.fxml"));
-			Scene scene = new Scene(root, 1200, 900);
+			Scene scene = new Scene(root, 1000, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			primaryStage.setTitle("Transport Dealership Management");

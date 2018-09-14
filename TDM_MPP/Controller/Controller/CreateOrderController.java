@@ -114,6 +114,8 @@ public class CreateOrderController implements Initializable{
 			
 			data.add(transport);
 			final ObservableList<Transport> transports = FXCollections.observableArrayList(data);
+			listTransportTableView.setItems(transports);
+			
 			selectedTransportTableView.refresh();
 			listTransportTableView.refresh();
 		}	
