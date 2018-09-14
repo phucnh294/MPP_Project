@@ -8,7 +8,7 @@ import Data.Transport;
 import GUI.order.CreateOrder;
 import GUI.order.OrderView;
 import GUI.Customer.Customer;
-import GUI.Transport.AddTransport;
+import GUI.Transport.TransportView;
 import GUI.User.UserView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -59,7 +59,7 @@ public class AppController implements Initializable {
 							content.setText(name);
 							content.setContent(customer.getTilePane());
 						}  else if ("Add a new car".equals(name)) {
-							AddTransport addCar = new AddTransport(null);
+							TransportView addCar = new TransportView(null);
 							content.setText(name);
 							content.setContent(addCar.getTilePane());
 						} else if ("Order".equals(name)) {
@@ -67,7 +67,7 @@ public class AppController implements Initializable {
 							content.setText(name);
 							content.setContent(contract.getTilePane());
 						} else if ("Transport".equals(name)) {
-							AddTransport contract = new AddTransport(null);
+							TransportView contract = new TransportView(null);
 							content.setText(name);
 							content.setContent(contract.getTilePane());
 						}else if ("User".equals(name)) {

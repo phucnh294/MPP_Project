@@ -2,22 +2,21 @@ package GUI.User;
 
 import java.io.IOException;
 
+import Common.View;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-public class UserView extends Stage{
-	private Pane primaryPane;
-	private GridPane tilePane;
+public class UserView extends View {
+	
 
 	public UserView(Pane primaryStage) {
-		this.primaryPane = primaryStage;
+		super(primaryStage);
 		loadResource();
 	}
 	
-	private void loadResource() {
+	public void loadResource() {
 		try {
 			tilePane = (GridPane) FXMLLoader.load(getClass().getResource("user.fxml"));
 			tilePane.setAlignment(Pos.TOP_LEFT);	
@@ -26,11 +25,4 @@ public class UserView extends Stage{
 		}
 	}
 
-	public Pane getPrimaryPane() {
-		return primaryPane;
-	}
-
-	public GridPane getTilePane() {
-		return tilePane;
-	}
 }

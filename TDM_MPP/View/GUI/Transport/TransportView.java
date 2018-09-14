@@ -2,18 +2,16 @@ package GUI.Transport;
 
 import java.io.IOException;
 
+import Common.View;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-public class AddTransport extends Stage {
-	private Pane primaryPane;
-	private GridPane tilePane;
-
-	public AddTransport(Pane primaryStage) {
-		this.primaryPane = primaryStage;
+public class TransportView extends View {
+	
+	public TransportView(Pane primaryStage) {
+		super(primaryStage);
 		loadResource();
 	}
 
@@ -26,11 +24,4 @@ public class AddTransport extends Stage {
 		}
 	}
 
-	public Pane getPrimaryPane() {
-		return primaryPane;
-	}
-
-	public GridPane getTilePane() {
-		return tilePane;
-	}
 }

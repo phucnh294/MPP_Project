@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:controller="GUI.sign_in.SignInController" prefHeight="300" prefWidth="600" maxHeight="1.5" maxWidth="1.5"
+<VBox fx:controller="Controller.SignInController" prefHeight="300" prefWidth="600" maxHeight="1.5" maxWidth="1.5"
 	xmlns:fx="http://javafx.com/fxml" styleClass="root" alignment="center">
 
 	<padding>
