@@ -17,7 +17,7 @@ public class OrderView extends View {
 
 	private void loadResource() {
 		try {
-			tilePane = (GridPane) FXMLLoader.load(getClass().getResource("Order.fxml"));
+			tilePane = (GridPane) FXMLLoader.load(getClass().getResource("order.fxml"));
 			tilePane.setAlignment(Pos.CENTER);
 		} catch (IOException e) {
 			e.printStackTrace();
