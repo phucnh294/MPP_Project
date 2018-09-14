@@ -1,6 +1,6 @@
 package View;
 
-import GUI.sign_in.SignInView;
+import GUI.sign_in.SignIn;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,13 +15,13 @@ public class Main extends Application {
 		Main.primaryStage = primaryStage;
 		try {
 			BorderPane root = (BorderPane) FXMLLoader.load(getClass().getResource("App.fxml"));
-			Scene scene = new Scene(root, 1000, 700);
+			Scene scene = new Scene(root, 1200, 900);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			primaryStage.setTitle("Transport Dealership Management");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(true);
-			SignInView login = new SignInView(primaryStage);
+			SignIn login = new SignIn(primaryStage);
 			login.setResizable(false);
 			loginStage = login;
 			login.show();

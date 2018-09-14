@@ -1,4 +1,4 @@
-package GUI.order;
+package Controller;
 
 import java.io.Serializable;
 import java.net.URL;

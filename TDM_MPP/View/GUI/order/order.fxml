@@ -11,7 +11,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.order.OrderController">
+<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" 
+xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.OrderController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
    </columnConstraints>
@@ -71,12 +72,12 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Customer Id" GridPane.halignment="RIGHT">
+            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Customer" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField id="streetField" fx:id="customerId" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Customer Id" GridPane.columnIndex="1">
+            <TextField id="streetField" fx:id="customerId" maxWidth="300.0" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Customer" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
@@ -94,12 +95,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Dealer Id" GridPane.halignment="RIGHT">
+            <Label maxWidth="70.0" minWidth="70.0" prefHeight="18.0" prefWidth="70.0" text="Dealer" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField id="cityField" fx:id="dealerId" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="DealerId" GridPane.columnIndex="1">
+            <TextField id="cityField" fx:id="dealerId" minWidth="300.0" prefHeight="26.0" prefWidth="300.0" promptText="Dealer" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
