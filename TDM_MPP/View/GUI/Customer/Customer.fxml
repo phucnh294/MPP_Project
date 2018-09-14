@@ -16,11 +16,11 @@
 		<ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
 	</columnConstraints>
 	<rowConstraints>
-      <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
-		<RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
-		<RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
-		<RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
-		<RowConstraints maxHeight="332.0" minHeight="189.0" prefHeight="230.0" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="44.0" minHeight="9.599990844726559" prefHeight="9.599990844726559" valignment="CENTER" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="78.40000915527344" minHeight="44.0" prefHeight="47.59999389648437" valignment="CENTER" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="73.60000610351562" minHeight="44.0" prefHeight="50.20001831054689" valignment="CENTER" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="67.19998168945312" minHeight="44.0" prefHeight="53.39998168945313" valignment="CENTER" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="332.0" minHeight="189.0" prefHeight="242.20001831054685" valignment="CENTER" vgrow="SOMETIMES" />
 		<RowConstraints maxHeight="95.0" minHeight="0.0" prefHeight="54.0" valignment="CENTER" vgrow="SOMETIMES" />
 	</rowConstraints>
 	<children>
