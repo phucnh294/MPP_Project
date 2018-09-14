@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import Data.Order;
-import GUI.order.OrderTransport;
 
 public interface IOrder {
 	public void insertOrder(Order order) throws SQLException;

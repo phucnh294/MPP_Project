@@ -2,18 +2,16 @@ package GUI.Customer;
 
 import java.io.IOException;
 
+import Common.View;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-public class Customer extends Stage{
-	private Pane primaryPane;
-	private GridPane tilePane;
-
-	public Customer(Pane primaryStage) {
-		this.primaryPane = primaryStage;
+public class CustomerView extends View{
+	
+	public CustomerView(Pane primaryStage) {
+		super(primaryStage);
 		loadResource();
 	}
 	
@@ -24,14 +22,6 @@ public class Customer extends Stage{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public Pane getPrimaryPane() {
-		return primaryPane;
-	}
-
-	public GridPane getTilePane() {
-		return tilePane;
 	}
 	
 }

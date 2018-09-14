@@ -3,11 +3,11 @@ package Controller;
 
 import java.sql.SQLException;
 
+import App.Main;
 import Data.Party;
 import Interface.IParty;
 import Service.PartyFactory;
 import Utilities.Validation;
-import View.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.Alert;

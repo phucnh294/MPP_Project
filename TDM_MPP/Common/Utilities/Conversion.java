@@ -76,17 +76,17 @@ public class Conversion implements SQLConstants {
 	 * @param rs
 	 * @return
 	 */
-	public static Order toOrderTransports(ResultSet rs, List<Order> orders) {
-		if (rs == null) return null;
+	public static void toOrderTransports(ResultSet rs, List<Order> orders) {
+		if (rs == null) return;
 		
 		Transport transport = new Transport();
-		Transport selectTrans= new Transport();
 		Order ord = null;
 		try {
 			int orderId = rs.getInt(ID_ORDER_COLUMN);
 			for (Order ordTemp : orders) {
 				if(ordTemp.getId() == orderId) {
 					ord = ordTemp;
+					orders.add(ord);
 					break;
 				}
 			}
@@ -96,9 +96,7 @@ public class Conversion implements SQLConstants {
 				ord.setCustomerID(rs.getInt(CUSTOMER_ID_ORDER_COLUMN));
 				ord.setDealerID(rs.getInt(DEALER_ID_ORDER_COLUMN));
 				ord.setOrderDate(rs.getDate(ORDER_DATE_ORDER_COLUMN).toLocalDate());
-				ord.setId(rs.getInt(ID_ORDER_COLUMN));
-				List<Transport> transports = new ArrayList<>();
-				ord.setTransports(transports);
+				ord.setId(rs.getInt(ID_ORDER_COLUMN));				
 			}
 			ord.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
 			transport.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
@@ -120,15 +118,13 @@ public class Conversion implements SQLConstants {
 			ord.setDealerName(rs.getString(DEALER_NAME_COLUMN));
 			ord.setCustomerName(rs.getString(PARTY_NAME_ORDER_COLUMN));
 			
-			ord.getTransports().add(transport);	
+			ord.addTransport(transport);	
 			
-			selectTrans=transport;
 			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}		
-		return ord;
 	}
 	
 }

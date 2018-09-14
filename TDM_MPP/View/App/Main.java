@@ -1,6 +1,7 @@
-package View;
+package App;
 
-import GUI.sign_in.SignIn;
+
+import GUI.sign_in.SignInView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,7 +22,7 @@ public class Main extends Application {
 			primaryStage.setTitle("Transport Dealership Management");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(true);
-			SignIn login = new SignIn(primaryStage);
+			SignInView login = new SignInView(primaryStage);
 			login.setResizable(false);
 			loginStage = login;
 			login.show();

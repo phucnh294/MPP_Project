@@ -3,18 +3,16 @@ package GUI.order;
 
 import java.io.IOException;
 
+import Common.View;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-public class CreateOrder extends Stage{
-	private Pane primaryPane;
-	private GridPane tilePane;
-
-	public CreateOrder(Pane primaryStage) {
-		this.primaryPane = primaryStage;
+public class CreateOrderView extends View{
+	
+	public CreateOrderView(Pane primaryStage) {
+		super(primaryStage);
 		loadResource();
 	}
 
@@ -27,12 +25,4 @@ public class CreateOrder extends Stage{
 		}
 	}
 
-	public Pane getPrimaryPane() {
-		return primaryPane;
-	}
-
-	public GridPane getTilePane() {
-		return tilePane;
-	}
-    
 }

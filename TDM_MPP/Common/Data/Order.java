@@ -4,6 +4,7 @@
 package Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,6 +23,14 @@ public class Order extends Entity {
 	private String dealerName;
 
 	private List<Transport> transports;
+	
+	public Order() {
+		transports = new ArrayList<>();
+	}
+	
+	public void addTransport(Transport tran) {
+		transports.add(tran);
+	}
 
 	public List<Transport> getTransports() {
 		return transports;

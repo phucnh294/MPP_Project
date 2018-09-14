@@ -1,14 +1,14 @@
-package View;
+package App;
 
 import java.net.URL;
 
 import java.util.ResourceBundle;
 
 import Data.Transport;
-import GUI.order.CreateOrder;
+import GUI.order.CreateOrderView;
 import GUI.order.OrderView;
 
-import GUI.Customer.Customer;
+import GUI.Customer.CustomerView;
 import GUI.Transport.TransportView;
 import GUI.User.UserView;
 import javafx.event.ActionEvent;
@@ -56,7 +56,7 @@ public class AppController implements Initializable {
 					if (node instanceof Text || (node instanceof TreeCell && ((TreeCell) node).getText() != null)) {
 						
 						if ("Customer".equals(name)) {
-							Customer customer = new Customer(null);
+							CustomerView customer = new CustomerView(null);
 							content.setText(name);
 							content.setContent(customer.getTilePane());
 						}  else if ("Add a new car".equals(name)) {
@@ -76,7 +76,7 @@ public class AppController implements Initializable {
 							content.setText(name);
 							content.setContent(userView.getTilePane());
 						}else if ("Create Order".equals(name)) {
-							CreateOrder createOrder = new CreateOrder(null);
+							CreateOrderView createOrder = new CreateOrderView(null);
 							content.setText(name);
 							content.setContent(createOrder.getTilePane());
 						}

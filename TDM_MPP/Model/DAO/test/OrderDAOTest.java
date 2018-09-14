@@ -10,9 +10,7 @@ import java.util.List;
 
 import DAO.OrderDAO;
 import Data.Order;
-import Data.Party;
 import Data.Transport;
-import GUI.order.OrderTransport;
 
 /**
  * @author ptkie

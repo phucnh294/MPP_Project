@@ -14,10 +14,8 @@ import java.util.List;
 import Common.SQLConstants;
 import Data.Order;
 import Data.Transport;
-import GUI.order.OrderTransport;
 import Interface.IOrder;
 import Utilities.Conversion;
-import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
 
 /**
@@ -159,7 +157,7 @@ public class OrderDAO implements SQLConstants,IOrder {
 			ResultSet rs = stm.executeQuery();
 
 			while (rs.next()) {
-				searchResult.add(Conversion.toOrderTransports(rs, searchResult));
+				Conversion.toOrderTransports(rs, searchResult);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

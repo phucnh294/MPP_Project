@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Data.Party;
-import GUI.Customer.Customer;
+import GUI.Customer.CustomerView;
 import Interface.IParty;
 import Service.PartyFactory;
 import Utilities.Validation;
@@ -37,11 +37,11 @@ public class CustomerController implements Initializable{
 	@FXML TableView<Party> partyTableList;
 	int privateId;
 	@FXML
-	TableColumn<Customer, String> nameCol;
+	TableColumn<CustomerView, String> nameCol;
 	@FXML
-	TableColumn<Customer, String> phoneCol;
+	TableColumn<CustomerView, String> phoneCol;
 	@FXML
-	TableColumn<Customer, String> emailCol;
+	TableColumn<CustomerView, String> emailCol;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -79,9 +79,9 @@ public class CustomerController implements Initializable{
 	}
 
 	private void setUpTable() {
-		nameCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("name"));
-		phoneCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
-		emailCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));	
+		nameCol.setCellValueFactory(new PropertyValueFactory<CustomerView, String>("name"));
+		phoneCol.setCellValueFactory(new PropertyValueFactory<CustomerView, String>("phone"));
+		emailCol.setCellValueFactory(new PropertyValueFactory<CustomerView, String>("email"));	
 		
 	}
 	

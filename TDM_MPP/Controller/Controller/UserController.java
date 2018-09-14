@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import Data.Party;
-import GUI.Customer.Customer;
+import GUI.Customer.CustomerView;
 import Interface.IParty;
 import Service.PartyFactory;
 import Utilities.Validation;
@@ -41,11 +41,11 @@ public class UserController implements Initializable {
 	@FXML RadioButton adminRadio;
 	int privateId;
 	@FXML
-	TableColumn<Customer, String> nameCol;
+	TableColumn<CustomerView, String> nameCol;
 	@FXML
-	TableColumn<Customer, String> typeCol;
+	TableColumn<CustomerView, String> typeCol;
 	@FXML
-	TableColumn<Customer, String> emailCol;
+	TableColumn<CustomerView, String> emailCol;
 	private final String DEALER_TYPE = "DEALER";
 	private final String ADMIN_TYPE = "ADMIN";
 
@@ -83,9 +83,9 @@ public class UserController implements Initializable {
 	}
 
 	private void setUpTable() {
-		nameCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("name"));
-		typeCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("type"));
-		emailCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));	
+		nameCol.setCellValueFactory(new PropertyValueFactory<CustomerView, String>("name"));
+		typeCol.setCellValueFactory(new PropertyValueFactory<CustomerView, String>("type"));
+		emailCol.setCellValueFactory(new PropertyValueFactory<CustomerView, String>("email"));	
 		
 	}
 	
