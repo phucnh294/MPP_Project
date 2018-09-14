@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import DAO.PartyDAO;
+import Data.Party;
 import Interface.IParty;
-import User.Party;
 
 
 public class PartyFactory extends PartyDAO{

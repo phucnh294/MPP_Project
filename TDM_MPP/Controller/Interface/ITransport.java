@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Vehicle.Transport;
+import Data.Transport;
 public interface ITransport {
 	void insertTransport(Transport transport) throws SQLException; 
 	void updateTransport(Transport transport) throws SQLException ;

@@ -9,11 +9,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Common.Conversion;
 import Common.SQLConstants;
+import Data.Transport;
 import Interface.ITransport;
+import Utilities.Conversion;
 import Utilities.DatabaseConnection;
-import Vehicle.Transport;
 
 /**
  * @author ptkie

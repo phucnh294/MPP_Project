@@ -3,7 +3,7 @@ package Interface;
 import java.sql.SQLException;
 import java.util.List;
 
-import User.Party;
+import Data.Party;
 
 public interface IParty {
 	 void insertParty(Party party) throws SQLException ;

@@ -5,9 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import Data.Party;
 import Interface.IParty;
 import Service.PartyFactory;
-import User.Party;
 import Utilities.Validation;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ObservableValue;
@@ -52,8 +52,8 @@ public class CustomerController implements Initializable{
 		    	
 		    	Party party =partyTableList.getSelectionModel().getSelectedItem();
 		    	
-		    	privateId =party.getCustomerId();
-		    	this.Id.setText(Integer.toString(party.getCustomerId()));
+		    	privateId =party.getId();
+		    	this.Id.setText(Integer.toString(party.getId()));
 		    	this.name.setText(party.getName());
 		    	this.phone.setText(party.getPhone());
 		    	this.email.setText(party.getEmail());
@@ -143,7 +143,7 @@ public class CustomerController implements Initializable{
 			return;
 		}
 		Party party = partyTableList.getSelectionModel().getSelectedItem();
-		party.setCustomerId(privateId);
+		party.setId(privateId);
 		party.setName(this.name.getText()); 
 		party.setPhone(this.phone.getText());
 		party.setEmail(this.email.getText());
@@ -168,7 +168,7 @@ public class CustomerController implements Initializable{
 
 	@FXML protected void onRemove_Click(ActionEvent event) {
 		Party party = partyTableList.getSelectionModel().getSelectedItem();
-		party.setCustomerId(privateId);
+		party.setId(privateId);
 		party.setName(this.name.getText()); 
 		party.setPhone(this.phone.getText());
 		party.setEmail(this.email.getText());

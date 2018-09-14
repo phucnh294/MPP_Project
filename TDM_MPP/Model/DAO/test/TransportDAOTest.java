@@ -1,13 +1,14 @@
 /**
  * 
  */
-package DAO;
+package DAO.test;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-import Vehicle.Transport;
+import DAO.TransportDAO;
+import Data.Transport;
 
 /**
  * @author ptkie

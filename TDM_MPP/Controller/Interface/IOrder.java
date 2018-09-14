@@ -3,8 +3,8 @@ package Interface;
 import java.sql.SQLException;
 import java.util.List;
 
-import Order.Order;
-import Order.OrderTransport;
+import Data.Order;
+import GUI.order.OrderTransport;
 
 public interface IOrder {
 	public void insertOrder(Order order) throws SQLException;

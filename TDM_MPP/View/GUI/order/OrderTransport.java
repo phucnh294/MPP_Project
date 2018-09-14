@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Order;
+package GUI.order;
 
 /**
  * @author ptkie

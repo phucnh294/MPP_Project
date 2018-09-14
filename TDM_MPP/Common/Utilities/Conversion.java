@@ -1,13 +1,14 @@
-package Common;
+package Utilities;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Order.Order;
-import User.Party;
-import Vehicle.Transport;
+import Common.SQLConstants;
+import Data.Order;
+import Data.Party;
+import Data.Transport;
 
 public class Conversion implements SQLConstants {
 
@@ -16,7 +17,7 @@ public class Conversion implements SQLConstants {
 		
 		Party party = new Party();
 		try {
-			party.setCustomerId(rs.getInt(ID_PARTY_COLUMN));
+			party.setId(rs.getInt(ID_PARTY_COLUMN));
 			party.setName(rs.getString(NAME_PARTY_COLUMN));
 			party.setPhone(rs.getString(PHONE_PARTY_COLUMN));
 			party.setEmail(rs.getString(EMAIL_PARTY_COLUMN));

@@ -11,14 +11,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import Common.Conversion;
 import Common.SQLConstants;
+import Data.Order;
+import Data.Transport;
+import GUI.order.OrderTransport;
 import Interface.IOrder;
-import Order.Order;
-import Order.OrderTransport;
+import Utilities.Conversion;
 import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
-import Vehicle.Transport;
 
 /**
  * @author ptkie

@@ -1,10 +1,9 @@
-package Vehicle;
+package Data;
 
 import java.time.LocalDate;
 
-public class Transport {
-	private int id;
-	private String name;
+public class Transport extends Entity {
+	
 	private String brand;
 	private double price;
 	private LocalDate createdDate;
@@ -56,18 +55,7 @@ public class Transport {
 	public void setSeatCapacity(int seatCapacity) {
 		this.seatCapacity = seatCapacity;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getBrand() {
 		return brand;
 	}
