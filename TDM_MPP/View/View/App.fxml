@@ -33,8 +33,6 @@
       <ToolBar prefHeight="21.0" prefWidth="1074.0" BorderPane.alignment="CENTER">
          <items>
             <Label text="Welcome " />
-            <Label fx:id="userType" text="Admin" />
-            <Label fx:id="userName" text="Name" />
             <Label text="to TDM System" />
          </items></ToolBar>
    </bottom>

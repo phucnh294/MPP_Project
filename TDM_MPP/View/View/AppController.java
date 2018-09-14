@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 
 import GUI.order.CreateOrder;
 import GUI.order.OrderView;
+
+import User.Party;
 import GUI.Customer.Customer;
 import GUI.Transport.AddTransport;
 import GUI.User.UserView;
@@ -85,30 +87,22 @@ public class AppController implements Initializable {
 		});
 		root.setExpanded(true);
 		// Customer
-		TreeItem<String> customer = new TreeItem<>("Customer", getImageView("customer.png"));
+		TreeItem<String> customer = new TreeItem<>("Customer");
 		root.getChildren().add(customer);
 		
-		TreeItem<String> car = new TreeItem<>("Transport", getImageView("Car.png"));
-//		TreeItem<String> addNewCar = new TreeItem<>("Add a new car", getImageView("add.png"));
-//		car.getChildren().add(addNewCar);
-//		TreeItem<String> listCar = new TreeItem<>("List cars", getImageView("list.png"));
-//		car.getChildren().add(listCar);
-		root.getChildren().add(car);
+		TreeItem<String> trasnport = new TreeItem<>("Transport");
+		root.getChildren().add(trasnport);
 
 		TreeItem<String> contract = new TreeItem<>("Order");
 		TreeItem<String> rentCar = new TreeItem<>("Create Order");
 		contract.getChildren().add(rentCar);
-//		TreeItem<String> returnCar = new TreeItem<>("List Order", getImageView("returnCar.jpeg"));
-//		contract.getChildren().add(returnCar);
 		root.getChildren().add(contract);
 
 		// User
-		management = new TreeItem<>("Management", getImageView("Management.png"));
+		management = new TreeItem<>("Management");
 		root.getChildren().add(management);
-		TreeItem<String> createUser = new TreeItem<>("User", getImageView("createUser.png"));
+		TreeItem<String> createUser = new TreeItem<>("User");
 		management.getChildren().add(createUser);
-//		TreeItem<String> listUser = new TreeItem<>("List User", getImageView("listUser.png"));
-//		management.getChildren().add(listUser);
 
 	}
 

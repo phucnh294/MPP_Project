@@ -13,6 +13,7 @@ import Order.Order;
 import Order.OrderTransport;
 import Service.OrderFactory;
 import Utilities.Validation;
+import Vehicle.Transport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -69,8 +70,8 @@ public class OrderController implements Initializable{
 		    	privateOrderId =order.getId();
 		    	this.Id.setText(Integer.toString(order.getId()));
 		    	this.amount.setText(Double.toString(order.getAmount()));
-		    	this.customerId.setText(Integer.toString(order.getCustomerID()));
-		    	this.dealerId.setText(Integer.toString(order.getDealerID()));
+		    	this.customerId.setText(order.getCustomerName());
+		    	this.dealerId.setText(order.getDealerName());
 		    }
 		});
 	}
@@ -106,7 +107,9 @@ public class OrderController implements Initializable{
 			e.printStackTrace();
 		}		
 		for(Order o : data) {
-			
+			for(Transport trans : o.getTransports()) {
+				
+			}
 		}
 		
 		
