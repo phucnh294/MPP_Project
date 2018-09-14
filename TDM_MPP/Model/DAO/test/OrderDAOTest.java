@@ -1,17 +1,18 @@
 /**
  * 
  */
-package DAO;
+package DAO.test;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import Order.Order;
-import Order.OrderTransport;
-import User.Party;
-import Vehicle.Transport;
+import DAO.OrderDAO;
+import Data.Order;
+import Data.Party;
+import Data.Transport;
+import GUI.order.OrderTransport;
 
 /**
  * @author ptkie

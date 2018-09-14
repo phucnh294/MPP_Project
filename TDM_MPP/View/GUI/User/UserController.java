@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import Data.Party;
 import GUI.Customer.Customer;
 import Interface.IParty;
 import Service.PartyFactory;
-import User.Party;
 import Utilities.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

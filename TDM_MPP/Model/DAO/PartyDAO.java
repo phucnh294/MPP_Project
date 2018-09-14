@@ -9,10 +9,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Common.Conversion;
 import Common.SQLConstants;
+import Data.Party;
 import Interface.IParty;
-import User.Party;
+import Utilities.Conversion;
 import Utilities.DBUtility;
 import Utilities.DatabaseConnection;
 //teststse
@@ -63,7 +63,7 @@ public class PartyDAO implements SQLConstants, IParty{
 			stm.setString(5, party.getType());
 			stm.setString(6, party.getHobbies());
 			stm.setInt(7, party.getMarriageStatus());
-			stm.setInt(8, party.getCustomerId());
+			stm.setInt(8, party.getId());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -82,7 +82,7 @@ public class PartyDAO implements SQLConstants, IParty{
 		PreparedStatement stm = null;
 		try {
 			stm = DatabaseConnection.getInstance().getConnection().prepareStatement(DELETE_PARTY_SQL);			
-			stm.setInt(1, party.getCustomerId());
+			stm.setInt(1, party.getId());
 			stm.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

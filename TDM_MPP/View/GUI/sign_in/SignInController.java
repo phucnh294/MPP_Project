@@ -3,9 +3,9 @@ package GUI.sign_in;
 
 import java.sql.SQLException;
 
+import Data.Party;
 import Interface.IParty;
 import Service.PartyFactory;
-import User.Party;
 import Utilities.Validation;
 import View.Main;
 import javafx.event.ActionEvent;

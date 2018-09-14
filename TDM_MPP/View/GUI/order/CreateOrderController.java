@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import Data.Order;
+import Data.Transport;
 import Interface.IOrder;
 import Interface.ITransport;
-import Order.Order;
 import Service.OrderFactory;
 import Service.TransportFactory;
 import Utilities.Validation;
-import Vehicle.Transport;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

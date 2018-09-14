@@ -4,6 +4,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
+import Data.Transport;
 import GUI.order.CreateOrder;
 import GUI.order.OrderView;
 
@@ -11,7 +12,6 @@ import User.Party;
 import GUI.Customer.Customer;
 import GUI.Transport.AddTransport;
 import GUI.User.UserView;
-import Vehicle.Transport;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

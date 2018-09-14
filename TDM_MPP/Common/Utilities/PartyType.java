@@ -1,4 +1,4 @@
-package Common;
+package Utilities;
 
 public enum PartyType {
 	CUSTOMER("CUSTOMER"),

@@ -19,7 +19,7 @@ public class DatabaseConnection {
 
 	private static DatabaseConnection instance;
 	private Connection connection;
-	private String url = "jdbc:mysql://localhost:3306/TDM";
+	private String url = "jdbc:mysql://localhost:3306/TDM?useSSL=false";
 	private String username = "root";
 	private String password = "root";
 

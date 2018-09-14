@@ -1,13 +1,14 @@
 /**
  * 
  */
-package DAO;
+package DAO.test;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
-import User.Party;
+import DAO.PartyDAO;
+import Data.Party;
 
 /**
  * @author ptkie
