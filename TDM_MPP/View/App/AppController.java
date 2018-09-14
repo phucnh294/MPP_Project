@@ -113,22 +113,6 @@ public class AppController implements Initializable {
 		INSTANCE = iNSTANCE;
 	}
 
-	private ImageView getImageView(String fileName) {
-		Image img;
-		try {
-			img = new Image("/"+fileName);
-			ImageView imgView = new ImageView(img);
-			imgView.setFitWidth(20);
-			imgView.setFitHeight(20);
-			return imgView;
-		}catch (Exception e) {
-		}
-//		ImageView imgView = new ImageView(img);
-//		imgView.setFitWidth(20);
-//		imgView.setFitHeight(20);
-		return null;
-	}
-
 	@FXML
 	private void exitAction(ActionEvent event) {
 		Main.getPrimaryStage().close();

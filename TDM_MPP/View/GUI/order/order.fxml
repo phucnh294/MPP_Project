@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" 
-xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.OrderController">
+<GridPane alignment="CENTER" prefHeight="529.0" prefWidth="930.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.OrderController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
    </columnConstraints>
@@ -25,7 +24,7 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.OrderController">
       <RowConstraints maxHeight="44.0" minHeight="0.0" prefHeight="0.0" valignment="CENTER" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <GridPane minWidth="150.0" prefHeight="33.0" prefWidth="150.0">
+      <GridPane minWidth="150.0" prefHeight="33.0" prefWidth="150.0" visible="false">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
@@ -108,35 +107,9 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.OrderController">
             <Button mnemonicParsing="false" onAction="#onClearOrder_Click" prefHeight="27.0" prefWidth="135.0" text="Clear" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
-      <TableView fx:id="orderTableList" maxHeight="286.0" minHeight="200.0" prefHeight="286.0" prefWidth="707.0" GridPane.rowIndex="4">
-         <columns>
-            <TableColumn fx:id="idCol" maxWidth="200.0" prefWidth="80.79995566606522" text="ID">
-               <cellValueFactory>
-                  <PropertyValueFactory property="firstName" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="amountCol" maxWidth="220.00003814697266" prefWidth="125.59996795654297" text="Amount">
-               <cellValueFactory>
-                  <PropertyValueFactory property="streetLine1" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="customerCol" maxWidth="245.6000518798828" prefWidth="133.6000518798828" text="Customer">
-               <cellValueFactory>
-                  <PropertyValueFactory property="city" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="dealerCol" maxWidth="263.2000427246094" prefWidth="116.79998779296875" text="Dealer">
-               <cellValueFactory>
-                  <PropertyValueFactory property="city" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="transportCol" prefWidth="75.0" text="Transport" />
-            <TableColumn fx:id="brandCol" prefWidth="75.0" text="Brand" />
-            <TableColumn fx:id="priceCol" prefWidth="75.0" text="Price" />
-         </columns>
-      </TableView>
-      <GridPane GridPane.rowIndex="5">
+      <GridPane prefHeight="49.0" prefWidth="934.0" GridPane.rowIndex="5">
          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
@@ -144,8 +117,55 @@ xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.OrderController">
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRemoveOrder_Click" prefWidth="100.0" text="Remove" GridPane.halignment="CENTER" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEditOrder_Click" prefWidth="100.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRemoveOrder_Click" prefWidth="100.0" text="Remove" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEditOrder_Click" prefWidth="100.0" text="Edit" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <GridPane prefHeight="288.0" prefWidth="918.0" GridPane.rowIndex="4">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.60003662109375" minWidth="10.0" prefWidth="457.60003662109375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.39996337890625" minWidth="0.0" prefWidth="26.799963378906227" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="441.60003051757815" minWidth="10.0" prefWidth="436.0000366210937" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="139.59998168945313" minHeight="10.0" prefHeight="25.199982070922857" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="263.6000179290771" minHeight="10.0" prefHeight="263.6000179290771" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TableView fx:id="orderTableList" maxHeight="286.0" minHeight="200.0" prefHeight="286.0" prefWidth="478.0" GridPane.rowIndex="1">
+               <columns>
+                  <TableColumn fx:id="idCol" maxWidth="200.0" prefWidth="80.79995566606522" text="ID">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="firstName" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="amountCol" maxWidth="220.00003814697266" prefWidth="125.59996795654297" text="Amount">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="streetLine1" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="customerCol" maxWidth="245.6000518798828" prefWidth="133.6000518798828" text="Customer">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="city" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="dealerCol" maxWidth="263.2000427246094" prefWidth="116.79998779296875" text="Dealer">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="city" />
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+            </TableView>
+            <TableView fx:id="transportOrderTableView" prefHeight="288.0" prefWidth="427.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <columns>
+                  <TableColumn fx:id="transportCol" prefWidth="97.60003817081451" text="Transport" />
+                  <TableColumn fx:id="nameCol" prefWidth="93.59996795654297" text="Name" />
+                  <TableColumn fx:id="brandCol" minWidth="0.0" prefWidth="99.2000732421875" text="Brand" />
+                  <TableColumn fx:id="priceCol" prefWidth="132.7999267578125" text="Price" />
+              </columns>
+            </TableView>
+            <Label text="Order List" />
+            <Label text="Transport Order" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </children>

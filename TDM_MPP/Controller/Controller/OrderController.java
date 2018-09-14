@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Data.Order;
+import Data.Transport;
 import Interface.IOrder;
 import Service.OrderFactory;
 import Utilities.Validation;
@@ -28,10 +29,7 @@ public class OrderController implements Initializable{
 	@FXML TableColumn<Order, Double> amountCol;
 	@FXML TableColumn<Order, String> customerCol;
 	@FXML TableColumn<Order, String> dealerCol;
-	
-	@FXML TableColumn<Order, String> transportCol;
-	@FXML TableColumn<Order, String> brandCol;
-	@FXML TableColumn<Order, Double> priceCol;
+
 
 	
 	@FXML TableView<Order> orderTableList;
@@ -46,6 +44,12 @@ public class OrderController implements Initializable{
 	@FXML TableView<Order> selectedTransportTableView;
 	@FXML TableView<Order> listTransportTableView;
 	
+	@FXML TableView<Transport>transportOrderTableView;
+	
+	@FXML TableColumn<Transport, String> transportCol;
+	@FXML TableColumn<Transport, String> brandCol;
+	@FXML TableColumn<Transport, Double> priceCol;
+	@FXML TableColumn<Transport, String> nameCol;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -63,6 +67,10 @@ public class OrderController implements Initializable{
 		    	this.amount.setText(Double.toString(order.getAmount()));
 		    	this.customerId.setText(order.getCustomerName());
 		    	this.dealerId.setText(order.getDealerName());
+		    	List<Transport> transport = order.getTransports();
+		    	
+		    	final ObservableList<Transport> orderTransport = FXCollections.observableArrayList(transport);
+		    	transportOrderTableView.setItems(orderTransport);
 		    }
 		});
 	}
@@ -72,10 +80,12 @@ public class OrderController implements Initializable{
 		idCol.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
 		amountCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("amount"));
 		customerCol.setCellValueFactory(new PropertyValueFactory<Order, String>("customerName"));	
-		dealerCol.setCellValueFactory(new PropertyValueFactory<Order, String>("dealerName"));		
-		transportCol.setCellValueFactory(new PropertyValueFactory<Order, String>("transportType"));		
-		brandCol.setCellValueFactory(new PropertyValueFactory<Order, String>("brand"));		
-		priceCol.setCellValueFactory(new PropertyValueFactory<Order, Double>("price"));		
+		dealerCol.setCellValueFactory(new PropertyValueFactory<Order, String>("dealerName"));
+		
+		transportCol.setCellValueFactory(new PropertyValueFactory<Transport, String>("transportType"));		
+		brandCol.setCellValueFactory(new PropertyValueFactory<Transport, String>("brand"));		
+		priceCol.setCellValueFactory(new PropertyValueFactory<Transport, Double>("price"));
+		nameCol.setCellValueFactory(new PropertyValueFactory<Transport, String>("name"));
 	}
 	
 	private void loadData() {
@@ -99,7 +109,10 @@ public class OrderController implements Initializable{
 		}		
 		
 		final ObservableList<Order> order = FXCollections.observableArrayList(data);
+		
 		orderTableList.setItems(order);
+		
+		
 	}
 	
 	@FXML protected void onCreateOrder_Click(ActionEvent event) {

@@ -134,21 +134,21 @@ public class OrderDAO implements SQLConstants,IOrder {
 	 * @return
 	 * @throws SQLException
 	 */
-	public List<Order> search(int id, String customerName, String transportName) throws SQLException {
+	public List<Order> search(int id, String customerName, String dealerName) throws SQLException {
 		List<Order> searchResult = new ArrayList<>();
 		PreparedStatement stm = null;
 		try {
 			StringBuffer sql = new StringBuffer(SEARCH_ORDER_SQL);
-			if (id > 0) {
-
-				sql.append(SEARCH_ORDER_ID_CONDITION_SQL.replaceAll("[?]", String.valueOf(id)));
-			}
+//			if (id > 0) {
+//
+//				sql.append(SEARCH_ORDER_ID_CONDITION_SQL.replaceAll("[?]", String.valueOf(id)));
+//			}
 			if (customerName != null && customerName.trim().length() != 0) {
 				sql.append(SEARCH_ORDER_PARTY_NAME_CONDITION_SQL.replaceAll("[?]", (customerName)));
 			}
-			if (transportName != null && transportName.trim().length() != 0) {
+			if (dealerName != null && dealerName.trim().length() != 0) {
 				sql.append(
-						SEARCH_ORDER_TRANSPORT_NAME_CONDITION_SQL.replaceAll("[?]", (transportName)));
+						SEARCH_ORDER_DEALER_NAME_CONDITION_SQL.replaceAll("[?]", (dealerName)));
 			}
 			sql.append(SEARCH_ORDER_SORT_SQL);
 

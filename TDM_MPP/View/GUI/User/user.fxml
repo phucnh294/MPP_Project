@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,9 +13,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.control.PasswordField?>
 
-<GridPane prefHeight="517.0" prefWidth="717.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="702.0" scaleShape="false" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UserController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" />
    </columnConstraints>
@@ -24,11 +24,11 @@
       <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="44.0" minHeight="44.0" prefHeight="44.0" valignment="CENTER" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="288.0" minHeight="200.0" prefHeight="288.0" valignment="CENTER" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="44.0" minHeight="0.0" prefHeight="0.0" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="288.0" minHeight="200.0" prefHeight="275.2000122070312" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="44.0" minHeight="0.0" prefHeight="43.79998779296875" valignment="CENTER" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <GridPane minWidth="150.0" prefHeight="33.0" prefWidth="150.0">
+      <GridPane minWidth="150.0" prefHeight="44.0" prefWidth="932.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
@@ -113,26 +113,26 @@
             <RadioButton fx:id="adminRadio" mnemonicParsing="false" text="ADMIN" toggleGroup="$userType" GridPane.columnIndex="2" />
          </children>
       </GridPane>  
-      <TableView fx:id="userTableList" maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="707.0" GridPane.rowIndex="5">
+      <TableView fx:id="userTableList" maxHeight="274.0" minHeight="200.0" prefHeight="274.0" prefWidth="894.0" GridPane.rowIndex="5">
          <columns>
-            <TableColumn fx:id="nameCol" maxWidth="371.9999449849129" prefWidth="264.7999938130379" text="Name">
+            <TableColumn fx:id="nameCol" maxWidth="371.9999449849129" prefWidth="227.20003682374954" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="firstName" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="emailCol" maxWidth="316.80006408691406" prefWidth="297.6000061035156" text="Email">
+            <TableColumn fx:id="emailCol" maxWidth="316.80006408691406" prefWidth="271.9999694824219" text="Email">
                <cellValueFactory>
                   <PropertyValueFactory property="streetLine1" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="typeCol" maxWidth="373.6000671386719" prefWidth="116.00006103515625" text="Type">
+            <TableColumn fx:id="typeCol" maxWidth="373.6000671386719" prefWidth="181.5999755859375" text="Type">
                <cellValueFactory>
                   <PropertyValueFactory property="city" />
                </cellValueFactory>
             </TableColumn>
          </columns>
       </TableView>
-      <GridPane GridPane.rowIndex="6">
+      <GridPane prefHeight="66.0" prefWidth="726.0" GridPane.rowIndex="6">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

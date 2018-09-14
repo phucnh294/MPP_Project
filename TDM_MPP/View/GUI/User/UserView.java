@@ -19,7 +19,7 @@ public class UserView extends View {
 	public void loadResource() {
 		try {
 			tilePane = (GridPane) FXMLLoader.load(getClass().getResource("user.fxml"));
-			tilePane.setAlignment(Pos.TOP_LEFT);	
+			tilePane.setAlignment(Pos.CENTER);	
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
