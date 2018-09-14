@@ -85,8 +85,7 @@ public class Conversion implements SQLConstants {
 			int orderId = rs.getInt(ID_ORDER_COLUMN);
 			for (Order ordTemp : orders) {
 				if(ordTemp.getId() == orderId) {
-					ord = ordTemp;
-					orders.add(ord);
+					ord = ordTemp;					
 					break;
 				}
 			}
@@ -96,7 +95,8 @@ public class Conversion implements SQLConstants {
 				ord.setCustomerID(rs.getInt(CUSTOMER_ID_ORDER_COLUMN));
 				ord.setDealerID(rs.getInt(DEALER_ID_ORDER_COLUMN));
 				ord.setOrderDate(rs.getDate(ORDER_DATE_ORDER_COLUMN).toLocalDate());
-				ord.setId(rs.getInt(ID_ORDER_COLUMN));				
+				ord.setId(rs.getInt(ID_ORDER_COLUMN));	
+				orders.add(ord);
 			}
 			ord.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
 			transport.setBrand(rs.getString(BRAND_TRANSPORT_COLUMN));
