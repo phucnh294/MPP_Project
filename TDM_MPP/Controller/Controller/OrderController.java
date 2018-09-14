@@ -63,10 +63,10 @@ public class OrderController implements Initializable{
 		    	Order order =orderTableList.getSelectionModel().getSelectedItem();
 		    	
 		    	privateOrderId =order.getId();
-		    	this.Id.setText(Integer.toString(order.getId()));
-		    	this.amount.setText(Double.toString(order.getAmount()));
-		    	this.customerId.setText(order.getCustomerName());
-		    	this.dealerId.setText(order.getDealerName());
+//		    	this.Id.setText(Integer.toString(order.getId()));
+//		    	this.amount.setText(Double.toString(order.getAmount()));
+//		    	this.customerId.setText(order.getCustomerName());
+//		    	this.dealerId.setText(order.getDealerName());
 		    	List<Transport> transport = order.getTransports();
 		    	
 		    	final ObservableList<Transport> orderTransport = FXCollections.observableArrayList(transport);
@@ -111,7 +111,6 @@ public class OrderController implements Initializable{
 		final ObservableList<Order> order = FXCollections.observableArrayList(data);
 		
 		orderTableList.setItems(order);
-		
 		
 	}
 	

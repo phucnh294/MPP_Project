@@ -124,6 +124,11 @@ public class CreateOrderController implements Initializable{
 		if(!Validation.isValidField(customerId, dealerId)) {
 			return;
 		}
+		
+		if(selectedData.size()<=0) {
+			Message(AlertType.WARNING, "No Transport Selected","Please Select At Least One Transport");	
+			return;
+		}
 		double total=0;
 		Order order = new Order();
 		for(Transport trans: selectedData) {

@@ -117,8 +117,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRemoveOrder_Click" prefWidth="100.0" text="Remove" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onEditOrder_Click" prefWidth="100.0" text="Edit" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onRemoveOrder_Click" prefWidth="100.0" text="Remove" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <GridPane prefHeight="382.0" prefWidth="922.0" GridPane.rowIndex="4">
